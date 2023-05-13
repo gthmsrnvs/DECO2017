@@ -1,40 +1,72 @@
-* {
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
+body {
     font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
     padding: 20px;
   }
   
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    padding-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form input[type="text"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
   .rating {
-    direction: rtl;  /* This makes the stars fill from left to right */
+    direction: rtl;
   }
   
-  .star {
-    font-size: 2em;
-    color: #ccc;
+  .rating > input {
+    display: none;
+  }
+  
+  .rating > label {
+    font-size: 25px;
+    color: #ddd;
     cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    transition: color 200ms;
   }
   
-  .star:before {
-    content: "★";
+  .rating > input:checked ~ label,
+  .rating:not(:checked) > label:hover,
+  .rating:not(:checked) > label:hover ~ label {
+    color: #ffc700;
   }
   
-  input[type="radio"]:checked ~ .star {
-    color: #FFD700;
+  form input[type="submit"] {
+    padding: 10px;
+    background-color: #5cfcff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 200ms;
   }
   
-  input[type="radio"]:not(:checked) ~ .star:hover,
-  input[type="radio"]:not(:checked) ~ .star:hover ~ .star {
-    color: #deb217;
+  form input[type="submit"]:hover {
+    background-color: #4db8bf;
   }
   
-  input[type="radio"]:checked ~ .star:hover,
-  input[type="radio"]:checked ~ .star:hover ~ .star,
-  input[type="radio"]:hover ~ .star:hover,
-  input[type="radio"]:hover ~ .star:hover ~ .star {
-    color: #c59b08;
-  }
   

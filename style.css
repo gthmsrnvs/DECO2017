@@ -1,70 +1,40 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
   
   body {
     font-family: Arial, sans-serif;
+    padding: 20px;
   }
   
-  nav ul {
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
-    padding: 1em;
-    background-color: #333;
+  .rating {
+    direction: rtl;  /* This makes the stars fill from left to right */
   }
   
-  nav ul li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    padding: 1em;
-  }
-  
-  form label {
-    font-weight: bold;
-  }
-  
-  form input[type="submit"] {
-    width: 100px;
-    padding: 0.5em;
-    border: none;
-    color: #fff;
-    background-color: #333;
+  .star {
+    font-size: 2em;
+    color: #ccc;
     cursor: pointer;
   }
   
-  input[type="radio"] {
-    display: none;
+  .star:before {
+    content: "★";
   }
   
-  label {
-    color: #ccc;
-    font-size: 24px;
-  }
-  
-  input[type="radio"]:checked ~ label {
+  input[type="radio"]:checked ~ .star {
     color: #FFD700;
   }
   
-  input[type="radio"]:checked ~ label ~ label {
-    color: #ccc;
-  }
-  
-  input[type="radio"]:not(:checked) ~ label:hover,
-  input[type="radio"]:not(:checked) ~ label:hover ~ label {
+  input[type="radio"]:not(:checked) ~ .star:hover,
+  input[type="radio"]:not(:checked) ~ .star:hover ~ .star {
     color: #deb217;
   }
   
-  input[type="radio"]:checked ~ label:hover,
-  input[type="radio"]:checked ~ label:hover ~ label {
+  input[type="radio"]:checked ~ .star:hover,
+  input[type="radio"]:checked ~ .star:hover ~ .star,
+  input[type="radio"]:hover ~ .star:hover,
+  input[type="radio"]:hover ~ .star:hover ~ .star {
     color: #c59b08;
   }
   

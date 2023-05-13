@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 1em;
+    background-color: #333;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+  }
+  
+  form label {
+    font-weight: bold;
+  }
+  
+  form input[type="submit"] {
+    width: 100px;
+    padding: 0.5em;
+    border: none;
+    color: #fff;
+    background-color: #333;
+    cursor: pointer;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  label {
+    color: #ccc;
+    font-size: 24px;
+  }
+  
+  input[type="radio"]:checked ~ label {
+    color: #FFD700;
+  }
+  
+  input[type="radio"]:checked ~ label ~ label {
+    color: #ccc;
+  }
+  
+  input[type="radio"]:not(:checked) ~ label:hover,
+  input[type="radio"]:not(:checked) ~ label:hover ~ label {
+    color: #deb217;
+  }
+  
+  input[type="radio"]:checked ~ label:hover,
+  input[type="radio"]:checked ~ label:hover ~ label {
+    color: #c59b08;
+  }
+  

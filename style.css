@@ -1,84 +1,90 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    padding: 20px;
-  }
-  
-  .container {
-    width: 80%;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-  }
-  
-  nav ul {
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
-    padding-bottom: 20px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  form input[type="text"] {
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-  }
-  
-  label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
 
-  .rating {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.container {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
 
-  .rating {
-    direction: rtl;
-  }
-  
-  .rating > input {
-    display: none;
-  }
-  
-  .rating > label {
-    font-size: 25px;
-    color: #ddd;
-    cursor: pointer;
-    display: inline-block;
-    margin: 0;
-    transition: color 200ms;
-  }
-  
-  .rating > input:checked ~ label,
-  .rating:not(:checked) > label:hover,
-  .rating:not(:checked) > label:hover ~ label {
-    color: #ffc700;
-  }
-  
-  form input[type="submit"] {
-    padding: 10px;
-    background-color: #f64d4d;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 200ms;
-  }
-  
-  form input[type="submit"]:hover {
-    background-color: #f68b8b;
-  }
-  
-  
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  padding-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input[type="text"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rating {
+  direction: rtl;
+}
+
+.rating > input {
+  display: none;
+}
+
+.rating > label {
+  font-size: 25px;
+  color: #ddd;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  transition: color 200ms;
+}
+
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #ffc700;
+}
+
+form input[type="submit"] {
+  padding: 10px;
+  background-color: #f64d4d;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 200ms;
+}
+
+form input[type="submit"]:hover {
+  background-color: #f68b8b;
+}
+
+#songForm, #songListContainer {
+  display: none;
+}
+
+#addSongBtn {
+  font-size: large;
+}

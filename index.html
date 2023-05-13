@@ -11,14 +11,16 @@
   <body>
     <nav>
       <ul>
-        <li><a href="#mySongs">My Songs</a></li>
+        <li id="mySongsNav"><a href="#">My Songs</a></li>
         <li><a href="#visualise">Visualise</a></li>
         <li><a href="#search">Search</a></li>
       </ul>
     </nav>
 
+    <button id="addSongBtn">+</button>
+
     <div class="container">
-      <form action="#mySongs" method="post">
+      <form action="#mySongs" method="post" id="songForm" style="display: none;">
         <label for="songName">Song</label>
         <input type="text" name="songName" id="songName" />
         <label for="artistName">Artist</label>
@@ -44,7 +46,7 @@
       </form>
     </div>
 
-    <div id="songListContainer">
+    <div id="songListContainer" style="display: none;">
       <h2>My Songs</h2>
       <ul id="songList"></ul>
     </div>

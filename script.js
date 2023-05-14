@@ -16,5 +16,8 @@ addSongBtn.addEventListener('click', function() {
 
 // Show the song list when My Songs navigation link is clicked
 mySongsNav.addEventListener('click', function() {
-    songListContainer.style.display = 'block';
+    songListContainer.style.display = songListContainer.style.display === 'none' ? 'block' : 'none';
+    mySongsNav.classList.toggle('selected');
 });
+
+

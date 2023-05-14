@@ -21,7 +21,7 @@ nav ul {
 }
 
 form {
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 
@@ -85,27 +85,83 @@ form input[type="submit"]:hover {
   display: none;
 }
 
+/* add song button turns into an X when toggled
 #addSongBtn {
+  display: block;
   font-size: large;
-}
-
-.plusButton {
   width: 30px;
   height: 30px;
   position: relative;
-  background: none;
+  background-color: rgba(255, 255, 255 0.2);
+  border: 1px solid rgba(255, 255, 255 0.2);
   border: none;
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  color: #000;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
 }
 
-.plusButton .horizontal 
-.plusButton .vertical {
+#addSongBtn::before,
+#addSongBtn::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 2px;
+  background-color: #000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.5s ease;
+}
+
+#addSongBtn::after{
+  transform: translate(-50%, -50%) rotate (90deg);
+}
+
+#addSongBtn.close::before{
+  transform: translate(-50%, -50%) rotate (45deg);
+}
+
+#addSongBtn.close::after{
+  transform: translate(-50%, -50%) rotate (135deg);
+} */
+
+.plusButton {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  background-color: rgba(255, 255, 255 0.2);
+  border: 1px solid rgba(255, 255, 255 0.2);
+  border: none;
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  color: #000;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+.plusButton span {
   position: absolute;
   top: 50%;
-  left: 0;
-  right: 0;
-  margin: auto;
+  left: 50%;
+  width: 60%;
   height: 2px;
-  width: 100%;
   background-color: #000;
 }
 
+.plusButton .horizontal {
+  transform: translate(-50%, -50%);
+}
+
+.plusButton .vertical {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.plusButton.close .horizontal{
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.plusButton.close .vertical{
+  transform: translate(-50%, -50%) rotate(135deg);
+} 

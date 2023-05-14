@@ -20,9 +20,18 @@ nav ul {
   padding-bottom: 20px;
 }
 
-form {
-  display: none;
+form#songForm {
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 30%;
+  margin: 0 auto;
+}
+
+div.container{
+  width: 30%;
 }
 
 form input[type="text"] {
@@ -85,6 +94,7 @@ form input[type="submit"]:hover {
   display: none;
 }
 
+/* Add New Song */
 .plusButton {
   width: 60px;
   height: 60px;

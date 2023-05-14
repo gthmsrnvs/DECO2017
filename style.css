@@ -88,3 +88,24 @@ form input[type="submit"]:hover {
 #addSongBtn {
   font-size: large;
 }
+
+.plusButton {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  background: none;
+  border: none;
+}
+
+.plusButton .horizontal 
+.plusButton .vertical {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 2px;
+  width: 100%;
+  background-color: #000;
+}
+

@@ -69,4 +69,37 @@ function updateSongList() {
     songListContainer.style.display = 'block';
 }
 
+// Function to update mood visualisation
+function updateMoodVisualisation() {
+    // Get moodVisualisation element
+    let moodVisualisation = document.getElementById('moodVisualisation');
+
+    // Clear moodVisualisation
+    moodVisualisation.innerHTML = '';
+
+    // Create a bubble for each song
+    for (let song of songs) {
+        // Create a new div element for the bubble
+        let bubble = document.createElement('div');
+
+        // Set the class of the bubble
+        bubble.className = 'bubble';
+
+        // Set the size of the bubble based on the length of the mood
+        bubble.style.width = (song.mood.length * 10) + 'px';
+        bubble.style.height = (song.mood.length * 10) + 'px';
+
+        // Set the text of the bubble to the mood
+        bubble.textContent = song.mood;
+
+        // Add a click event listener to the bubble
+        bubble.addEventListener('click', function() {
+            console.log('Bubble clicked:', song);
+        });
+
+        // Add the bubble to the moodVisualisation
+        moodVisualisation.appendChild(bubble);
+    }
+}
+
 

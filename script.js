@@ -20,4 +20,54 @@ mySongsNav.addEventListener('click', function() {
     mySongsNav.classList.toggle('selected');
 });
 
+// Array to hold songs
+let songs = [];
+
+// Handle form submission
+songForm.addEventListener('submit', function(event) {
+    // Prevent form from submitting normally
+    event.preventDefault();
+
+    // Create a song object with form input values
+    let song = {
+        name: document.getElementById('songName').value,
+        artist: document.getElementById('artistName').value,
+        album: document.getElementById('albumName').value,
+        mood: document.getElementById('mood').value,
+        rating: document.querySelector('input[name="rate"]:checked').value
+    };
+
+    // Add song to songs array
+    songs.push(song);
+
+    // Clear form inputs
+    songForm.reset();
+
+    // Hide form
+    songForm.style.display = 'none';
+    addSongBtn.classList.remove('close');
+
+    // Update song list
+    updateSongList();
+});
+
+// Function to update song list
+function updateSongList() {
+    // Get song list element
+    let songList = document.getElementById('songList');
+
+    // Clear song list
+    songList.innerHTML = '';
+
+    // Add each song to the song list
+    songs.forEach(function(song, index) {
+        let listItem = document.createElement('li');
+        listItem.textContent = `${song.name} by ${song.artist} on ${song.album}. Mood: ${song.mood}. Rating: ${song.rating} stars.`;
+        songList.appendChild(listItem);
+    });
+
+    // Show song list
+    songListContainer.style.display = 'block';
+}
+
 

@@ -6,24 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Music Tracker App</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   </head>
 
   <body>
     <nav>
       <ul>
-        <li id="mySongsNav"><a id="mySongsNav" href="#">My Songs</a></li>
-        <li><a href="#visualise">Visualise</a></li>
-        <li><a href="#search">Search</a></li>
+        <li id="mySongsNav"><a href="#">My Songs</a></li>
+        <li id="visualiseNav"><a href="#">Visualise</a></li>
+        <li id="searchNav"><a href="#">Search</a></li>
       </ul>
     </nav>
 
     <button id="addSongBtn" class="plusButton">
-      <span class ="horizontal"></span>
-      <span class ="vertical"></span>
+      <span class="horizontal"></span>
+      <span class="vertical"></span>
     </button>
 
     <div class="container">
-      <form action="#mySongs" method="post" id="songForm" style="display: none;">
+      <form action="#mySongs" method="post" id="songForm" style="display: none">
         <label for="songName">Song</label>
         <input type="text" name="songName" id="songName" />
         <label for="artistName">Artist</label>
@@ -47,15 +48,16 @@
         </div>
         <input type="submit" value="Submit" />
       </form>
-    </div>
 
-    <div id="songListContainer" style="display: none;">
-      <h2>My Songs</h2>
-      <ul id="songList"></ul>
-    </div>
-    
+      <div id="songListContainer" style="display: none">
+        <h2>My Songs</h2>
+        <ul id="songList"></ul>
+      </div>
 
-    
+      <div id="moodVisualisation" style="display: none">
+        <h2><a id="visualiseButton">Visualise</a></h2>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>

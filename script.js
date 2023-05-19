@@ -2,10 +2,21 @@ const addSongBtn = document.getElementById('addSongBtn');
 const songForm = document.getElementById('songForm');
 const songListContainer = document.getElementById('songListContainer');
 const mySongsNav = document.getElementById('mySongsNav');
+const moodVisualisation = document.getElementById('moodVisualisation');
+const visualiseNav = document.getElementById('visualiseNav');
+const visualiseButton = document.getElementById('visualiseButton');
+
+window.onload = (event) => {
+    // Retrieve songs from localStorage on page load
+    songs = JSON.parse(localStorage.getItem('songs')) || [];
+    // Update the song list and mood visualisation
+    updateSongList();
+    updateMoodVisualisation();
+};
 
 // Toggle form display when addSongBtn is clicked
-addSongBtn.addEventListener('click', function() {
-    if(songForm.style.display === 'none' || songForm.style.display === '') {
+addSongBtn.addEventListener('click', function () {
+    if (songForm.style.display === 'none' || songForm.style.display === '') {
         songForm.style.display = 'block';
         addSongBtn.classList.add('close');
     } else {
@@ -14,17 +25,31 @@ addSongBtn.addEventListener('click', function() {
     }
 });
 
+//NAVIGATION===================================
 // Show the song list when My Songs navigation link is clicked
-mySongsNav.addEventListener('click', function() {
+mySongsNav.addEventListener('click', function () {
+    moodVisualisation.style.display = 'none';
     songListContainer.style.display = songListContainer.style.display === 'none' ? 'block' : 'none';
     mySongsNav.classList.toggle('selected');
+});
+
+// Show the visualisation when Visualise navigation link is clicked
+visualiseButton.addEventListener('click', function () {
+    // Hide all other containers
+    songForm.style.display = 'none';
+    songListContainer.style.display = 'none';
+    // Show the visualisation container
+    moodVisualisation.style.display = 'block';
+    console.log('Visualise clicked');
+    // Update the visualisation
+    updateMoodVisualisation();
 });
 
 // Array to hold songs
 let songs = [];
 
 // Handle form submission
-songForm.addEventListener('submit', function(event) {
+songForm.addEventListener('submit', function (event) {
     // Prevent form from submitting normally
     event.preventDefault();
 
@@ -59,9 +84,34 @@ function updateSongList() {
     songList.innerHTML = '';
 
     // Add each song to the song list
-    songs.forEach(function(song, index) {
+    songs.forEach(function (song, index) {
         let listItem = document.createElement('li');
-        listItem.textContent = `${song.name} by ${song.artist} on ${song.album}. Mood: ${song.mood}. Rating: ${song.rating} stars.`;
+        let songInfo = document.createElement('span');
+        songInfo.textContent = `${song.name} by ${song.artist} on ${song.album}. Mood: ${song.mood}. Rating: ${song.rating} stars.`;
+        listItem.appendChild(songInfo);
+        // Create the delete button
+        let deleteButton = document.createElement('button');
+        deleteButton.innerHTML = '<i class="fas fa-trash"></i><br>';
+        deleteButton.className = 'deleteButton';
+        // Add click event listener to the delete button
+        deleteButton.addEventListener('click', function () {
+            // Show confirmation prompt
+            let confirmDelete = confirm('Are you sure you want to delete this song?');
+            if (confirmDelete) {
+                // Remove song from songs array
+                songs.splice(index, 1);
+
+                // Save updated songs to localStorage
+                localStorage.setItem('songs', JSON.stringify(songs));
+
+                // Update song list
+                updateSongList();
+            }
+        });
+        // Append delete button to the song list item
+        listItem.appendChild(deleteButton);
+
+        // Append song list item to the song list
         songList.appendChild(listItem);
     });
 
@@ -93,7 +143,7 @@ function updateMoodVisualisation() {
         bubble.textContent = song.mood;
 
         // Add a click event listener to the bubble
-        bubble.addEventListener('click', function() {
+        bubble.addEventListener('click', function () {
             console.log('Bubble clicked:', song);
         });
 
@@ -101,5 +151,8 @@ function updateMoodVisualisation() {
         moodVisualisation.appendChild(bubble);
     }
 }
+
+
+
 
 

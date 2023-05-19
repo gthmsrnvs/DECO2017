@@ -1,3 +1,9 @@
+// Load songs from localStorage
+let songs = JSON.parse(localStorage.getItem('songs')) || [];
+
+// Update song list on page load
+updateSongList();
+
 const addSongBtn = document.getElementById('addSongBtn');
 const songForm = document.getElementById('songForm');
 const songListContainer = document.getElementById('songListContainer');
@@ -20,8 +26,6 @@ mySongsNav.addEventListener('click', function() {
     mySongsNav.classList.toggle('selected');
 });
 
-// Array to hold songs
-let songs = [];
 
 // Handle form submission
 songForm.addEventListener('submit', function(event) {
@@ -42,10 +46,6 @@ songForm.addEventListener('submit', function(event) {
 
     // Clear form inputs
     songForm.reset();
-
-    // Hide form
-    songForm.style.display = 'none';
-    addSongBtn.classList.remove('close');
 
     // Update song list
     updateSongList();

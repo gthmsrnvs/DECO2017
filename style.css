@@ -3,15 +3,27 @@ body {
   background-color: #1c1c1c;
   padding: 20px;
   color: #F7F7F7;
+  margin-top: 5%;
 }
 
 .container {
   width: 80%;
-  margin: 0 auto;
+  margin: auto;
   background-color: #1A1A1A;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
+}
+
+button {
+  box-shadow: 0 5px 5px rgba(0,0,0, 0.2);
+  border-radius: ;
+}
+
+button:active{
+  /*move the button down a bit when clicked*/
+  transition-property: translateY(4px);
+  
 }
 
 nav ul {
@@ -114,6 +126,10 @@ form input[type="submit"]:hover {
 
 #songForm, #songListContainer {
   display: none;
+}
+
+#songListContainer {
+  height: 100vh;
 }
 
 .plusButton {

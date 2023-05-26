@@ -1,3 +1,4 @@
+// Initialise variables
 const addSongBtn = document.getElementById('addSongBtn');
 const songForm = document.getElementById('songForm');
 const songListContainer = document.getElementById('songListContainer');
@@ -79,6 +80,7 @@ songForm.addEventListener('submit', function (event) {
     updateSongList();
     }
 });
+
 
 // Function to update song list
 function updateSongList() {

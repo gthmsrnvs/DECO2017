@@ -159,6 +159,5 @@ function updateMoodVisualisation() {
     }
 }
 
-function showSearch
+//SEARCH===================================
 
-const searchInput = document.getElementById('searchInput');

@@ -2,28 +2,27 @@ body {
   font-family: Arial, sans-serif;
   background-color: #1c1c1c;
   padding: 20px;
-  color: #F7F7F7;
+  color: #f7f7f7;
   margin-top: 5%;
 }
 
 .container {
   width: 80%;
   margin: auto;
-  background-color: #1A1A1A;
+  background-color: #1a1a1a;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
 }
 
 button {
-  box-shadow: 0 5px 5px rgba(0,0,0, 0.2);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   border-radius: ;
 }
 
-button:active{
+button:active {
   /*move the button down a bit when clicked*/
   transition-property: translateY(4px);
-  
 }
 
 nav ul {
@@ -31,28 +30,28 @@ nav ul {
   justify-content: space-around;
   list-style-type: none;
   padding-bottom: 20px;
-  background-color: #1A1A1A;
+  background-color: #1a1a1a;
 }
 
 nav ul li {
-  background-color: #FF3F3F;
+  background-color: #ff3f3f;
   margin: 0 10px;
   padding: 10px 20px;
-  border-radius: 5px;
   box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
+
 }
 
 nav ul li a {
-  color: #F7F7F7;
+  color: #f7f7f7;
   transition: color 0.3ms ease;
 }
 
 nav ul li a:hover {
-  color: #1A1A1A;
+  color: #1a1a1a;
 }
 
 nav ul li a.selected {
-  color: #1A1A1A;
+  color: #1a1a1a;
 }
 
 form#songForm {
@@ -70,8 +69,8 @@ form input[type="text"] {
   margin-bottom: 20px;
   border-radius: 5px;
   border: 1px solid #ddd;
-  background-color: #1A1A1A;
-  color: #F7F7F7;
+  background-color: #1a1a1a;
+  color: #f7f7f7;
 }
 
 label {
@@ -111,20 +110,21 @@ label {
 
 form input[type="submit"] {
   padding: 10px;
-  background-color: #FF3F3F;
+  background-color: #ff3f3f;
   border: none;
   border-radius: 5px;
-  color: #1A1A1A;
+  color: #1a1a1a;
   cursor: pointer;
   transition: background-color 200ms;
 }
 
 form input[type="submit"]:hover {
-  background-color: #F7F7F7;
-  color: #1A1A1A;
+  background-color: #f7f7f7;
+  color: #1a1a1a;
 }
 
-#songForm, #songListContainer {
+#songForm,
+#songListContainer {
   display: none;
 }
 
@@ -167,29 +167,28 @@ form input[type="submit"]:hover {
   transform: translate(-50%, -50%) rotate(90deg);
 }
 
-.plusButton.close .horizontal{
+.plusButton.close .horizontal {
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.plusButton.close .vertical{
+.plusButton.close .vertical {
   transform: translate(-50%, -50%) rotate(135deg);
-} 
+}
 
-
-#songListContainer{
+#songListContainer {
   width: 50%;
-  background-color: #1A1A1A;
+  background-color: #1a1a1a;
   box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
   border-radius: 5px;
 }
 
-.container{
+.container {
   display: flex;
   justify-content: space-between;
 }
 
-form#songForm{
-  display:flex;
+form#songForm {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -197,7 +196,7 @@ form#songForm{
 }
 
 form input[type="text"],
-form input[type="submit"]{
+form input[type="submit"] {
   display: block;
   margin: 10px auto;
 }
@@ -208,21 +207,21 @@ form input[type="submit"]{
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background-color: #FF3F3F;
-  color: #1A1A1A;
+  background-color: #ff3f3f;
+  color: #1a1a1a;
   margin: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .bubble:hover {
-  background-color: #F7F7F7;
-  color: #1A1A1A;
+  background-color: #f7f7f7;
+  color: #1a1a1a;
 }
 
 .deleteButton {
-  background-color: #FF3F3F;
-  color: #F7F7F7;
+  background-color: #ff3f3f;
+  color: #f7f7f7;
   border: none;
   border-radius: 5px;
   padding: 5px 10px;
@@ -230,3 +229,21 @@ form input[type="submit"]{
   cursor: pointer;
 }
 
+/* Search Navigation */
+/* hide input field in nav */
+#searchInput{
+  display: none;
+}
+
+#searchButton{
+  background-color: #ff3f3f;
+  border: none;
+  color: #f7f7f7;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

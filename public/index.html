@@ -7,64 +7,63 @@
     <title>Music Tracker App</title>
     <link rel="stylesheet" href="style.css" />
     <!-- CSS file for styling. -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <!-- Font Awesome Library is used for icons. -->
   </head>
 
   <body>
-    <header>
-      <nav class="navigation">
-        <ul>
-          <li><a href="#" name="mySongsNav">My Songs</a></li>
-          <li>
-            <a href="#" name="visualiseNav" id="visualiseButton">Visualise</a>
+    <nav class="navigation">
+      <ul>
+        <li id="mySongsNav"><a href="#">My Songs</a></li>
+        <li id="visualiseNav"><a id="visualiseButton" href="#">Visualise</a></li>
+        <li id="searchNav">
+          <input type="search" placeholder="Search songs..." id="searchInput"/>
+          <button id="searchButton" aria-label="Search"><i class="fas fa-search"></i></button>
           </li>
-          <li>
-            <input
-              type="search"
-              placeholder="Search songs..."
-              id="searchInput"
-              name="searchNav"
-            />Search
-          </li>
-        </ul>
-      </nav>
-    </header>
+      </ul>
+    </nav>
 
     <button id="addSongBtn" class="plusButton">
       <span class="horizontal"></span>
       <span class="vertical"></span>
     </button>
 
-    <main class="container">
+    <div class="container">
       <form action="#mySongs" method="post" id="songForm" style="display: none">
-        <!-- Existing form fields -->
+        <label for="songName">Song</label>
+        <input type="text" name="songName" id="songName" />
+        <label for="artistName">Artist</label>
+        <input type="text" name="artistName" id="artistName" />
+        <label for="albumName">Album</label>
+        <input type="text" name="albumName" id="albumName" />
+        <label for="genre">Mood</label>
+        <input type="text" name="mood" id="mood" />
+        <label for="rating">Rating</label>
+        <div class="rating">
+          <input type="radio" id="star5" name="rate" value="5" />
+          <label for="star5" title="text">★</label>
+          <input type="radio" id="star4" name="rate" value="4" />
+          <label for="star4" title="text">★</label>
+          <input type="radio" id="star3" name="rate" value="3" />
+          <label for="star3" title="text">★</label>
+          <input type="radio" id="star2" name="rate" value="2" />
+          <label for="star2" title="text">★</label>
+          <input type="radio" id="star1" name="rate" value="1" />
+          <label for="star1" title="text">★</label>
+        </div>
+        <input type="submit" value="Submit" />
       </form>
 
-      <aside id="songListContainer" style="display: none">
+      <div id="songListContainer" style="display: none">
+        <!-- make this an aside element -->
         <h2>My Songs</h2>
         <ul id="songList"></ul>
-      </aside>
-
-      <div id="moodVisualisation" style="display: none"></div>
-
-      <!-- Search Popup -->
-      <div id="searchPopup" style="display: none">
-        <div id="searchPopupContent">
-          <h3>Search Songs</h3>
-          <input
-            type="search"
-            id="searchInputPopup"
-            placeholder="Enter song name, artist, or album"
-            name="searchInputPopup"
-          />
-          <ul id="searchResults"></ul>
-        </div>
       </div>
-    </main>
+
+      <div id="moodVisualisation" style="display: none">
+      </div>
+
+    </div>
 
     <script src="script.js"></script>
   </body>

@@ -62,6 +62,10 @@ songForm.addEventListener('submit', function (event) {
         rating: document.querySelector('input[name="rate"]:checked').value
     };
 
+    //Show Confirmation Prompt
+    let cofirmPrompt = confirm('Are you sure you want to add this song?');
+    if(cofirmPrompt){
+
     // Add song to songs array
     songs.push(song);
 
@@ -73,6 +77,7 @@ songForm.addEventListener('submit', function (event) {
 
     // Update song list
     updateSongList();
+    }
 });
 
 // Function to update song list
@@ -136,8 +141,8 @@ function updateMoodVisualisation() {
         bubble.className = 'bubble';
 
         // Set the size of the bubble based on the length of the mood
-        bubble.style.width = (song.mood.length * 10) + 'px';
-        bubble.style.height = (song.mood.length * 10) + 'px';
+        bubble.style.width = (song.mood.length * 15) + 'px';
+        bubble.style.height = (song.mood.length * 15) + 'px';
 
         // Set the text of the bubble to the mood
         bubble.textContent = song.mood;

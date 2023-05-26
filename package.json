@@ -1,0 +1,16 @@
+{
+  "name": "gsri0828_tracker",
+  "version": "1.0.0",
+  "description": "Advanced Web Design Tracker Project 1. Create a HTML Boilerplate using ! 2. Add a star rating system in the form using radio buttons, then make the checkboxes invisible. 3. The javascript for adding songs was efficiently implemented with the support of GPT-4. 4.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

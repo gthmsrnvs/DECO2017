@@ -159,7 +159,6 @@ function updateMoodVisualisation() {
     }
 }
 
+function showSearch
 
-
-
-
+const searchInput = document.getElementById('searchInput');

@@ -7,17 +7,8 @@ const visualiseButton = document.getElementById('visualiseButton');
 const moodVisualisation = document.getElementById('moodVisualisation');
 const songForm = document.getElementById('songForm');
 
-var form = document.getElementById("songForm");
-  if(form.style.display === "none" || form.style.display === ""){
-    form.style.display = "block";
-    this.classList.add('is-active');
-  }else{
-    form.style.display = "none";
-    this.classList.remove('is-active');
-  }
-
 // Array to hold songs
-let songs = [];
+let songs = []; 
 
 // Retrieve songs from localStorage
 songs = JSON.parse(localStorage.getItem('songs')) || [];
@@ -26,13 +17,7 @@ songs = JSON.parse(localStorage.getItem('songs')) || [];
 updateSongList();
 
 addSongBtn.addEventListener("click", function () {
-  if (form.style.display === "none" || form.style.display === "") {
-    form.style.display = "block";
-    addSongBtn.classList.add("rotate");
-  } else {
-    form.style.display = "none";
-    addSongBtn.classList.remove("rotate");
-  }
+  songForm.style.display = "block";
 });
 
 // Function to update song list
@@ -93,14 +78,7 @@ mySongsNav.addEventListener('click', function () {
 
 // Show the visualisation when Visualise navigation link is clicked
 visualiseButton.addEventListener('click', function () {
-  // Hide all other containers
-  songForm.style.display = 'none';
-  songListContainer.style.display = 'none';
-  // Show the visualisation container
-  moodVisualisation.style.display = 'block';
-  console.log('Visualise clicked');
-  // Update the visualisation
-  updateMoodVisualisation();
+
 });
 
 // Handle form submission

@@ -1,10 +1,6 @@
 # DECO2017 Documentation
-Advanced Web Design Tracker Project
-1. Created a HTML Boilerplate using !
-2. Added a star rating system in the form using radio buttons,
-then made the checkboxes invisible.
-3. The javascript for adding songs was efficiently implemented with the support of GPT-4.
-4. 
+Advanced Web Design Tracker Project: 
+
 
 HTML Structure Overview:
 

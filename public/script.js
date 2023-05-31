@@ -1,93 +1,62 @@
 // Variables to store references to HTML elements
-const addSongBtn = document.getElementById('addSongBtn');
-const songListContainer = document.getElementById('songListContainer');
+const addSongBtn = document.getElementById('addSongButton');
+const formContainer = document.querySelector('.form-container');
+const songListContainer = document.querySelector('.song-list-container');
 const songList = document.getElementById('songList');
-const mySongsNav = document.getElementById('mySongsNav');
-const visualiseButton = document.getElementById('visualiseButton');
 const moodVisualisation = document.getElementById('moodVisualisation');
-const songForm = document.getElementById('songForm');
 
+// Create a new p5.js sketch and attach it to the moodVisualisation div
+
+//Put song data in local storage----------------------------------------------
 // Array to hold songs
-let songs = []; 
+let songs = [];
 
 // Retrieve songs from localStorage
 songs = JSON.parse(localStorage.getItem('songs')) || [];
 
-// Update song list with most recent localStorage data
-updateSongList();
-
-addSongBtn.addEventListener("click", function () {
-  songForm.style.display = "block";
-});
-
-// Function to update song list
+// Function to update the song list
 function updateSongList() {
-  // Get song list element
-  let songList = document.getElementById('songList');
-
-  // Clear song list
+  // Clear the existing list
   songList.innerHTML = '';
 
-  // Add each song to the song list
-  songs.forEach(function (song, index) {
-    let listItem = document.createElement('li');
-    let songInfo = document.createElement('span');
-    songInfo.textContent = `${song.name} by ${song.artist} on ${song.album}. Mood: ${song.mood}. Rating: ${song.rating} stars.`;
-    listItem.appendChild(songInfo);
-    // Create the delete button
-    let deleteButton = document.createElement('button');
-    deleteButton.innerHTML = '<i class="fas fa-trash"></i><br>';
-    deleteButton.className = 'deleteButton';
-    // Add click event listener to the delete button
-    deleteButton.addEventListener('click', function () {
-      // Show confirmation prompt
-      let confirmDelete = confirm('Are you sure you want to delete this song?');
-      if (confirmDelete) {
-        // Remove song from songs array
-        songs.splice(index, 1);
-
-        // Save updated songs to localStorage
-        localStorage.setItem('songs', JSON.stringify(songs));
-
-        // Update song list
-        updateSongList();
-        // Update mood visualisation
-        updateMoodVisualisation();
-      }
-    });
-    // Append delete button to the song list item
-    listItem.appendChild(deleteButton);
-
-    // Append song list item to the song list
+  // Iterate over the songs array and create list items for each song
+  songs.forEach(song => {
+    const listItem = document.createElement('li');
+    listItem.textContent = `${song.name} - ${song.artist}`;
     songList.appendChild(listItem);
   });
-
-  // Show song list
-  songListContainer.style.display = 'block';
 }
 
-addSongBtn.addEventListener('click', function () {
-  songForm.style.display = 'block';
-});
+// Function to update the mood visualisation
+function updateMoodVisualisation() {
+  // Clear the existing visualisation
+  moodVisualisation.innerHTML = '';
+  // Create and style the visualization in the div
+  // Add your p5.js code here to generate the 3D, animated, and interactive mood visualization
+  // You can create a new p5.js sketch and attach it to the moodVisualisation div
+  // Example: new p5(sketch, moodVisualisation);
+}
 
-// Show the song list when My Songs navigation link is clicked
-mySongsNav.addEventListener('click', function () {
-  moodVisualisation.style.display = 'none';
-  songListContainer.style.display = songListContainer.style.display === 'none' ? 'block' : 'none';
-});
+// Toggle form visibility and button appearance
+addSongBtn.addEventListener('click', function() {
+  const form = document.getElementById('form');
+  addSongBtn.classList.toggle('clicked');
+  form.style.display = form.style.display === 'none' ? 'block' : 'none';
 
-// Show the visualisation when Visualise navigation link is clicked
-visualiseButton.addEventListener('click', function () {
-
+  // Adjust layout based on form visibility
+  if (form.style.display === 'none') {
+    songListContainer.style.width = '100%';
+  } else {
+    songListContainer.style.width = '50%';
+  }
 });
 
 // Handle form submission
-songForm.addEventListener('submit', function (event) {
-  // Prevent form from submitting normally
+form.addEventListener('submit', function(event) {
   event.preventDefault();
 
   // Create a song object with form input values
-  let song = {
+  const song = {
     name: document.getElementById('songName').value,
     artist: document.getElementById('artistName').value,
     album: document.getElementById('albumName').value,
@@ -95,17 +64,17 @@ songForm.addEventListener('submit', function (event) {
     rating: document.querySelector('input[name="rate"]:checked').value
   };
 
-  // Show Confirmation Prompt
-  let cofirmPrompt = confirm('Are you sure you want to add this song?');
-  if (cofirmPrompt) {
-    // Add song to songs array
+  // Show confirmation prompt
+  const confirmPrompt = confirm('Are you sure you want to add this song?');
+  if (confirmPrompt) {
+    // Add the song to the songs array
     songs.push(song);
 
     // Save songs to localStorage
     localStorage.setItem('songs', JSON.stringify(songs));
 
     // Clear form inputs
-    songForm.reset();
+    form.reset();
 
     // Update song list
     updateSongList();
@@ -113,3 +82,9 @@ songForm.addEventListener('submit', function (event) {
     updateMoodVisualisation();
   }
 });
+
+// Initial update of the song list
+updateSongList();
+// Initial update of the mood visualisation
+updateMoodVisualisation();
+

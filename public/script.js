@@ -1,12 +1,20 @@
 // Variables to store references to HTML elements
 const addSongBtn = document.getElementById('addSongBtn');
-const form = document.getElementById('songForm');
 const songListContainer = document.getElementById('songListContainer');
 const songList = document.getElementById('songList');
 const mySongsNav = document.getElementById('mySongsNav');
 const visualiseButton = document.getElementById('visualiseButton');
 const moodVisualisation = document.getElementById('moodVisualisation');
 const songForm = document.getElementById('songForm');
+
+var form = document.getElementById("songForm");
+  if(form.style.display === "none" || form.style.display === ""){
+    form.style.display = "block";
+    this.classList.add('is-active');
+  }else{
+    form.style.display = "none";
+    this.classList.remove('is-active');
+  }
 
 // Array to hold songs
 let songs = [];

@@ -15,25 +15,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
 </head>
 
-<body>
-  <div id="cursor"></div>
-  <nav class="navigation">
-    <ul>
-      <li id="mySongsNav"><a href="#">My Songs</a></li>
-      <li id="visualiseNav"><a id="visualiseButton" href="#">Visualise</a></li>
-      <li id="searchNav">
-        <input type="search" placeholder="Search songs..." id="searchInput" />
-        <button id="searchButton" aria-label="Search"><i class="fas fa-search"></i></button>
-      </li>
-    </ul>
-  </nav>
-
-  <button id="addSongBtn" class="plusButton">
-    <span class="horizontal"></span>
-    <span class="vertical"></span>
-  </button>
-
-  <section class="form">
+<div class="tabs">
+  <input type="radio" class="tabs__radio" name="tabs-example" id="tab1" checked>
+  <label for="tab1" class="tabs__label">Add Song</label>
+  <div class="tabs__content">
     <form action="#mySongs" method="post" id="songForm" style="display: none">
       <label for="songName">Song</label>
       <input type="text" name="songName" id="songName" required/>
@@ -58,14 +43,38 @@
       </div>
       <input type="submit" value="Submit" />
     </form>
+  </div>
+  <input type="radio" class="tabs__radio" name="tabs-example" id="tab2">
+  <label for="tab2" class="tabs__label">Visualise</label>
+  <div class="tabs__content">
+    <section id="moodVisualisation" style="display: none">
+    </section>
+  </div>
+</div>
 
+<body>
+  <nav class="navigation">
+    <ul>
+      <li id="mySongsNav"><a href="#">My Songs</a></li>
+      <li id="visualiseNav"><a id="visualiseButton" href="#">Visualise</a></li>
+      <li id="searchNav">
+        <input type="search" placeholder="Search songs..." id="searchInput" />
+        <button id="searchButton" aria-label="Search"><i class="fas fa-search"></i></button>
+      </li>
+    </ul>
+  </nav>
+
+  <button id="addSongBtn" class="plusButton">
+    <span class="horizontal"></span>
+    <span class="vertical"></span>
+  </button>
+
+  <section class="form">
+  
     <article id="songListContainer" style="display: none">
       <h2>My Songs</h2>
       <ul id="songList"></ul>
     </article>
-
-    <section id="moodVisualisation" style="display: none">
-    </section>
 
   <script src="script.js"></script>
 </body>

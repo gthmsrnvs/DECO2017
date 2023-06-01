@@ -26,7 +26,7 @@ let songs = [];
 
 // Retrieve songs from localStorage
 songs = JSON.parse(localStorage.getItem('songs')) || [];
-
+ 
 // Function to update the song list
 function updateSongList() {
   // Clear the existing list
@@ -37,6 +37,17 @@ function updateSongList() {
     const listItem = document.createElement('li');
     listItem.textContent = `${song.name} - ${song.artist}`;
     songList.appendChild(listItem);
+    const button = document.createElement('button');
+    button.addEventListener('click', function() {
+      // Remove the song from the list
+      songs = songs.filter(s => !(s.name === song.name && s.artist === song.artist));
+      // Update localStorage
+      localStorage.setItem('songs', JSON.stringify(songs));
+      // Update the song list
+      updateSongList();
+      // Update the mood visualisation
+      updateMoodVisualisation();
+    });
   });
 }
 

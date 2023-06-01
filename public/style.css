@@ -1,9 +1,9 @@
 body {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'space grotesk', sans-serif;
   font-size: 18px;
   background-color: #1c1c1c;
-  padding: 20px;
   color: #f7f7f7;
+  overflow: hidden;
 }
 
 main {
@@ -14,16 +14,52 @@ main {
 }
 
 /* Button styles */
-#addSongButton {
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
+.plusButton {
+  width: 60px;
+  height: 60px;
+  top: 10px;
+  left: 10px;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #000;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
 }
 
-.clicked {
-  background-color: #ff0000;
-  color: #ffffff;
-  border: 2px solid #ff0000;
+.plusButton:active {
+  transform: translateY(4px);
+  box-shadow: 0px 1px 5px 0px rgba(255, 255, 255, 0.1);
+}
+
+.plusButton span {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background-color: #000;
+}
+
+.plusButton .horizontal {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.plusButton .vertical {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.plusButton.close .horizontal {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.plusButton.close .vertical {
+  transform: translate(-50%, -50%) rotate(135deg);
 }
 
 /* Header Styles */
@@ -32,30 +68,39 @@ header {
 }
 
 header h1 {
-  font-size: 50px;
-  margin-bottom: 20px;
+  font-size: 10rem;
+  font-family: "monofett", monospace;
+  margin: 0;
 }
 
 .container {
   width: 80%;
   margin: auto;
   background-color: #1a1a1a;
-  padding: 20px;
+  padding: 5vh;
   border-radius: 5px;
   box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 100%;
+  overflow: auto;
 }
 
-button {
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 50%;
+/* This rule targets direct child elements of elements with the class ".container" */
+.container > * {
+  flex: 1 1 30%; /* Set flexible properties for flexbox layout */
+  /* The flex-grow value of 1 allows the item to grow proportionally to other items */
+  /* The flex-shrink value of 1 allows the item to shrink equally with other items */
+  /* The flex-basis value of 30% sets the initial size of the item to 30% of the container's width */
 }
 
 nav ul {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   list-style-type: none;
-  padding-bottom: 20px;
-  background-color: #1a1a1a;
+  background-color: #a74545;
 }
 
 nav ul li {
@@ -81,7 +126,7 @@ nav ul li:active {
   box-shadow: 0px 2px 5px 0px rgba(255, 255, 255, 0.1);
 }
 
-form#songForm {
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -147,24 +192,17 @@ form input[type="submit"]:hover {
   color: #1a1a1a;
 }
 
-#songForm,
-#songListContainer {
-  display: none;
-}
 
 #songListContainer {
   width: 50%;
   background-color: #1a1a1a;
   box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
   border-radius: 5px;
+  max-height: 100vh;
 }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-}
 
-form#songForm {
+form#form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -178,67 +216,6 @@ form input[type="submit"] {
   margin: 10px auto;
 }
 
-#songListContainer {
-  width: 50%;
-  background-color: #1a1a1a;
-  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
-}
-
-.plusButton {
-  width: 60px;
-  height: 60px;
-  top: 10px;
-  left: 10px;
-  position: fixed;
-  background-color: rgba(255, 255, 255, 0.2);
-  border: none;
-  backdrop-filter: blur(10px);
-  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  color: #000;
-  z-index: 1000;
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
-}
-
-.plusButton:active {
-  transform: translateY(4px);
-  box-shadow: 0px 1px 5px 0px rgba(255, 255, 255, 0.1);
-}
-
-.plusButton span {
-  position: absolute;
-  width: 50%;
-  height: 2px;
-  background-color: #000;
-}
-
-.plusButton .horizontal {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.plusButton .vertical {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(90deg);
-}
-
-.plusButton.close .horizontal {
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.plusButton.close .vertical {
-  transform: translate(-50%, -50%) rotate(135deg);
-}
-
-#songListContainer {
-  width: 50%;
-  background-color: #1a1a1a;
-  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
-}
 
 /* Search Navigation */
 /* hide input field in nav */
@@ -284,4 +261,21 @@ form input[type="submit"] {
 
 .rotate {
   animation: rotation 0.5s linear;
+}
+
+/* Media Queries and CSS Breakpoints*/
+@media screen and (max-width: 1920px) {
+  /* Styles for screens with a maximum width of 1920px (typical for desktops) */
+}
+
+@media screen and (max-width: 1024px) {
+  /* Styles for screens with a maximum width of 1024px (typical for laptops) */
+}
+
+@media screen and (max-width: 768px) {
+  /* Styles for screens with a maximum width of 768px (typical for tablets and smartphones) */
+}
+
+@media screen and (max-width: 480px) {
+  /* Styles for screens with a maximum width of 480px (typical for smartphones) */
 }

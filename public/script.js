@@ -1,13 +1,26 @@
 // Variables to store references to HTML elements
 const addSongBtn = document.getElementById('addSongButton');
-const formContainer = document.querySelector('.form-container');
+const mySongsContainer = document.querySelector('.mySongsContainer');
 const songListContainer = document.querySelector('.song-list-container');
+const myVisualisation = document.querySelector('.myVisualisationContainer');
 const songList = document.getElementById('songList');
 const moodVisualisation = document.getElementById('moodVisualisation');
+const form = document.getElementById('form');
+const mySongsNav = document.getElementById('mySongsNav');
+const myVisualisationNav = document.getElementById('visualiseNav');
+const confirmDialog = document.getElementById('confirmDialog');
+const confirmYes = document.getElementById('confirmYes');
+const confirmNo = document.getElementById('confirmNo');
 
-// Create a new p5.js sketch and attach it to the moodVisualisation div
+//Navigation menu event listeners
+mySongsNav.addEventListener('click', function() {
+  mySongsContainer.style.display = mySongsContainer.style.display === 'block' ? 'none' : 'block';
+});
 
-//Put song data in local storage----------------------------------------------
+myVisualisationNav.addEventListener('click', function() {
+  myVisualisation.style.display = myVisualisation.style.display === 'none' ? 'block' : 'none';
+});
+
 // Array to hold songs
 let songs = [];
 
@@ -31,15 +44,10 @@ function updateSongList() {
 function updateMoodVisualisation() {
   // Clear the existing visualisation
   moodVisualisation.innerHTML = '';
-  // Create and style the visualization in the div
-  // Add your p5.js code here to generate the 3D, animated, and interactive mood visualization
-  // You can create a new p5.js sketch and attach it to the moodVisualisation div
-  // Example: new p5(sketch, moodVisualisation);
 }
 
 // Toggle form visibility and button appearance
 addSongBtn.addEventListener('click', function() {
-  const form = document.getElementById('form');
   addSongBtn.classList.toggle('clicked');
   form.style.display = form.style.display === 'none' ? 'block' : 'none';
 
@@ -51,12 +59,46 @@ addSongBtn.addEventListener('click', function() {
   }
 });
 
+let song; // to hold the song object when the form is submitted
+
+// Function to add song to the list
+function addSongToList() {
+  // Add the song to the songs array
+  songs.push(song);
+
+  // Save songs to localStorage
+  localStorage.setItem('songs', JSON.stringify(songs));
+
+  // Clear form inputs
+  form.reset();
+
+  // Update song list
+  updateSongList();
+
+  // Update mood visualisation
+  updateMoodVisualisation();
+}
+
+// Event listeners for dialog confirmation
+confirmYes.addEventListener('click', function() {
+  // Add song to list if Yes is clicked
+  addSongToList();
+  
+  // Close the dialog
+  confirmDialog.close();
+});
+
+confirmNo.addEventListener('click', function() {
+  // Close the dialog without adding if No is clicked
+  confirmDialog.close();
+});
+
 // Handle form submission
 form.addEventListener('submit', function(event) {
   event.preventDefault();
 
   // Create a song object with form input values
-  const song = {
+  song = {
     name: document.getElementById('songName').value,
     artist: document.getElementById('artistName').value,
     album: document.getElementById('albumName').value,
@@ -65,26 +107,11 @@ form.addEventListener('submit', function(event) {
   };
 
   // Show confirmation prompt
-  const confirmPrompt = confirm('Are you sure you want to add this song?');
-  if (confirmPrompt) {
-    // Add the song to the songs array
-    songs.push(song);
-
-    // Save songs to localStorage
-    localStorage.setItem('songs', JSON.stringify(songs));
-
-    // Clear form inputs
-    form.reset();
-
-    // Update song list
-    updateSongList();
-    // Update mood visualisation
-    updateMoodVisualisation();
-  }
+  confirmDialog.showModal();
 });
 
 // Initial update of the song list
 updateSongList();
+
 // Initial update of the mood visualisation
 updateMoodVisualisation();
-

@@ -2,12 +2,9 @@
 const addSongBtn = document.getElementById('addSongButton');
 const mySongsContainer = document.querySelector('.mySongsContainer');
 const songListContainer = document.querySelector('.song-list-container');
-const myVisualisation = document.querySelector('.myVisualisationContainer');
 const songList = document.getElementById('songList');
-const moodVisualisation = document.getElementById('moodVisualisation');
 const form = document.getElementById('form');
 const mySongsNav = document.getElementById('mySongsNav');
-const myVisualisationNav = document.getElementById('visualiseNav');
 const confirmDialog = document.getElementById('confirmDialog');
 const confirmYes = document.getElementById('confirmYes');
 const confirmNo = document.getElementById('confirmNo');
@@ -15,10 +12,6 @@ const confirmNo = document.getElementById('confirmNo');
 //Navigation menu event listeners
 mySongsNav.addEventListener('click', function() {
   mySongsContainer.style.display = mySongsContainer.style.display === 'block' ? 'none' : 'block';
-});
-
-myVisualisationNav.addEventListener('click', function() {
-  myVisualisation.style.display = myVisualisation.style.display === 'none' ? 'block' : 'none';
 });
 
 // Array to hold songs
@@ -45,16 +38,8 @@ function updateSongList() {
       localStorage.setItem('songs', JSON.stringify(songs));
       // Update the song list
       updateSongList();
-      // Update the mood visualisation
-      updateMoodVisualisation();
     });
   });
-}
-
-// Function to update the mood visualisation
-function updateMoodVisualisation() {
-  // Clear the existing visualisation
-  moodVisualisation.innerHTML = '';
 }
 
 // Toggle form visibility and button appearance
@@ -85,9 +70,6 @@ function addSongToList() {
 
   // Update song list
   updateSongList();
-
-  // Update mood visualisation
-  updateMoodVisualisation();
 }
 
 // Event listeners for dialog confirmation
@@ -123,6 +105,3 @@ form.addEventListener('submit', function(event) {
 
 // Initial update of the song list
 updateSongList();
-
-// Initial update of the mood visualisation
-updateMoodVisualisation();

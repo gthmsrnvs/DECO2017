@@ -1,10 +1,6 @@
 # Installation Instructions
 
-Ensure that you have Node.js, npm, and Express.js installed on your machine. If you do not have Express.js, install it globally using npm:
-
-```bash
-npm install -g express
-```
+Ensure that you have Node.js and a git client installed. If you do not, you can download them from the following links: [Node.js](https://nodejs.org/en/download/) and [Git](https://git-scm.com/downloads).
 
 ## Getting Started
 

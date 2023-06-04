@@ -52,4 +52,4 @@ Remember, you can always stop your server by pressing 'Control + C'.
    ```bash
    node server.js
    ```
-This will run the bundled application suitable for production as it is more efficient.
+This will run the bundled application suitable for production.

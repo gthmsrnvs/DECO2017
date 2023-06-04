@@ -10,13 +10,13 @@ const app = express();
 
 // Use the express.static middleware to serve static files. This includes images, CSS files, 
 // and JavaScript files. In this case, 'public' is the folder that contains the static files.
-app.use(express.static('dist'));
+app.use(express.static('public'));
 
 // Define a route handler for GET requests made to the root path ('/'). When someone visits 
 // the root path (i.e., http://localhost:8888/), the server will respond by sending the 
 // 'index.html' file located in the 'public' directory.
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/dist/index.html');
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 // Create an HTTP server that listens for requests and sends responses. This server is 

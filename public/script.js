@@ -61,17 +61,11 @@ document.getElementById('closeDetail').addEventListener('click', function() {
   document.getElementById('detailDialog').close();
 });
 
-// Toggle form visibility and button appearance
+// Randomise colours using addSongBtn event listener
 addSongBtn.addEventListener('click', function () {
+  //Toggle the form between visible and hidden
   addSongBtn.classList.toggle('clicked');
-  form.style.display = form.style.display === 'none' ? 'block' : 'none';
-
-  // Adjust layout based on form visibility
-  if (form.style.display === 'none') {
-    songListContainer.style.width = '100%';
-  } else {
-    songListContainer.style.width = '50%';
-  }
+  
 });
 
 let song; // to hold the song object when the form is submitted

@@ -155,7 +155,7 @@ label {
   transition: color 200ms;
 }
 
-
+// Star Rating system styles
 .rating > input:checked ~ label, /* show gold star when clicked */
 .rating:not(:checked) > label:hover, /* hover current star */
 .rating:not(:checked) > label:hover ~ label { /* hover previous stars in list */

@@ -25,22 +25,7 @@ Ensure that you have Node.js and a git client installed. If you do not, you can 
    npm install
    ```
 
-4. **Parcel Setup:**
-   Update your `package.json` scripts to include the following:
-
-   ```json
-   "scripts": {
-     "prestart": "parcel build ./public/index.html",
-     "dev": "parcel serve ./public/index.html"
-   },
-   ```
-
-   Update your `server.js` (or equivalent server-side script) to serve static files from the Parcel's dist directory and change the file to serve for the root directory:
-
-   ```javascript
-   app.use(express.static(__dirname + '/dist'));
-   res.sendFile(__dirname + '/dist/index.html');
-   ```
+4. **Run development server::**
 
    You can now run your development server using the following command:
 
@@ -50,12 +35,7 @@ Ensure that you have Node.js and a git client installed. If you do not, you can 
 
    The server will be live at `https://localhost:1234`.
 
-5. **SCSS Setup:**
-   Create a new SCSS file for each different module in your project under the `public/scss` directory. Import these modules into the `main.scss` file using the `@import` directive.
-
-   Your server is already set to compile and include your SCSS files in the project. When you make changes to any SCSS files, the server will automatically compile them to CSS and apply them to your project.
-
-6. **Building the Project:**
+5. **Building the Project:**
    Finally, to build your project, you can use the following command:
 
    ```bash

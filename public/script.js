@@ -10,6 +10,12 @@ const deleteYes = document.getElementById('deleteYes');
 const deleteNo = document.getElementById('deleteNo');
 const confirmYes = document.getElementById('confirmYes');
 const confirmNo = document.getElementById('confirmNo');
+const songNameInput = document.getElementById('songName');
+
+// Set focus on the song input field when the page loads
+window.addEventListener('load', function() {
+  songNameInput.focus();
+});
 
 // Array to hold songs
 let songs = [];
@@ -41,32 +47,34 @@ function updateSongList() {
 
     //Each song has an event listener that can be clicked to show a detailed view.
     const button = document.createElement('button');
-    button.innerHTML = '<i class="fas fa-trash-alt"></i>'; //use font awesome icon
+    button.innerHTML = '<i class="fas fa-trash-alt"></i>'; //use font awesome icon for trash can
     listItem.appendChild(button);
 
     //Delete button event listener
     button.addEventListener('click', function () {
       // Show confirmation prompt
       deleteDialog.showModal();
-      // if yes is clicked, delete song. if no is clicked, close dialog
+      // if yes is clicked, delete song and close dialog
       deleteYes.addEventListener('click', function () {
-      // Remove the song from the list
-      songs = songs.filter(s => !(s.ID === song.ID)); //Uses Unique ID to identify song to delete
-      // Update localStorage
-      localStorage.setItem('songs', JSON.stringify(songs));
-      // Update the song list
-      updateSongList();
+        // Remove the song from the list
+        songs = songs.filter(s => !(s.ID === song.ID)); //Uses Unique ID to identify song to delete
+        // Update localStorage
+        localStorage.setItem('songs', JSON.stringify(songs));
+        // Update the song list
+        updateSongList();
+        // Close the dialog
+        deleteDialog.close();
       });
       deleteNo.addEventListener('click', function () {
         // Close the dialog without deleting if No is clicked
         deleteDialog.close();
-      }, {once: true}); //once: true means the event listener will only run once
+      }, { once: true }); //once: true means the event listener will only run once
     });
   });
 };
 
 // Close detail view on 'Close' button click
-document.getElementById('closeDetail').addEventListener('click', function() {
+document.getElementById('closeDetail').addEventListener('click', function () {
   document.getElementById('detailDialog').close();
 });
 

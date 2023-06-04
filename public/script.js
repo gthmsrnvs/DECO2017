@@ -52,6 +52,7 @@ function updateSongList() {
 
     //Delete button event listener
     button.addEventListener('click', function () {
+      event.stopPropagation(); //This method stops the event from propagating to the parent elements, effectively preventing any higher-level event listeners from being triggered.
       // Show confirmation prompt
       deleteDialog.showModal();
       // if yes is clicked, delete song and close dialog
@@ -122,7 +123,7 @@ form.addEventListener('submit', function (event) {
 
   // Generate a unique ID for the song
   // const songID = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
-  const songID = uuidv4();
+  const songID = uuidv4(); //UUID is a Universally Unique Identifier. It is a 128-bit number used to identify information in computer systems.
   console.log(songID); // This will output a new unique identifier each time the page is reloaded
 
   // Create a song object with form input values

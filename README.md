@@ -1,36 +1,71 @@
-# DECO2017 Documentation
+# Installation Instructions
 
-# Installation Insatructions:
+Ensure that you have Node.js, npm, and Express.js installed on your machine. If you do not have Express.js, install it globally using npm:
 
-Advanced Web Design Tracker Project: 
+```bash
+npm install -g express
+```
 
+## Getting Started
 
-HTML Structure Overview:
+1. **Clone the GitHub Repository:**
+   Use the following command to clone the repository, replacing `<repository_url>` with the URL of the GitHub repository:
 
-*All classes and ID's were extracted from the code using GPT-4 AI which also generated a HTML skeleton structure to help you understand the HTML from an overview.*
+   ```bash
+   git clone <repository_url>
+   ```
 
-┌─ Document Type: HTML5
-│
-├─ HTML Document
-│
-├─ Document Head: Contains metadata and links to external resources
-│
-├─ Document Body: Main content of the webpage
-│   ├─ Header Section: Top of the webpage
-│   │   ├─ Navigation Section (.site-navigation): Contains main navigation system
-│   │   │   ├─ My Songs Navigation Item (#my-songs-nav-item)
-│   │   │   ├─ Visualise Navigation Item (#visualise-nav-item)
-│   │   │   └─ Search Navigation Item (#search-nav-item): Includes Search Input Field (#search-input) and Search Button (#search-button)
-│   │   └─ Add Song Button (#add-song-btn .plusButton)
-│   ├─ Main Section: Central content section (.main)
-│   │   ├─ Add Song Tab (.add-song-tab): Includes form fields for song details and star ratings
-│   │   └─ Visualise Tab (.visualise-tab): Includes Mood Visualisation Area (#mood-visualisation)
-│   └─ Song Form Section: Contains Song List Container (#song-list-container)
-│
-└─ End of HTML Document
+2. **Navigate to the Project Directory:**
+   Move to your project's directory with the following command, replacing `<repository_name>` with your project's name:
 
-CSS Structure Overview:
+   ```bash
+   cd <repository_name>
+   ```
 
-*All classes and ID's were extracted from the code using GPT-4 AI which also generated a CSS skeleton structure to help you understand the CSS from an overview.*
+3. **Install Dependencies:**
+   Open your terminal and navigate to the root directory of the project. Then, run the following command:
 
+   ```bash
+   npm install
+   ```
 
+4. **Parcel Setup:**
+   Update your `package.json` scripts to include the following:
+
+   ```json
+   "scripts": {
+     "prestart": "parcel build ./public/index.html",
+     "dev": "parcel serve ./public/index.html"
+   },
+   ```
+
+   Update your `server.js` (or equivalent server-side script) to serve static files from the Parcel's dist directory and change the file to serve for the root directory:
+
+   ```javascript
+   app.use(express.static(__dirname + '/dist'));
+   res.sendFile(__dirname + '/dist/index.html');
+   ```
+
+   You can now run your development server using the following command:
+
+   ```bash
+   npm run dev
+   ```
+
+   The server will be live at `https://localhost:1234`.
+
+5. **SCSS Setup:**
+   Create a new SCSS file for each different module in your project under the `public/scss` directory. Import these modules into the `main.scss` file using the `@import` directive.
+
+   Your server is already set to compile and include your SCSS files in the project. When you make changes to any SCSS files, the server will automatically compile them to CSS and apply them to your project.
+
+6. **Building the Project:**
+   Finally, to build your project, you can use the following command:
+
+   ```bash
+   npm run prestart
+   ```
+
+   This will create a 'dist' folder with all your bundled files. Now, the app is ready for deployment!
+
+Remember, you can always stop your server by pressing 'Control + C'.

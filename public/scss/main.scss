@@ -195,7 +195,7 @@ form input[type="submit"]:hover {
   max-height: 100%; 
   overflow-y: auto;
   flex-grow: 1; //makes the element grow to fill the parent aside element
-  list-style: none;
+  list-style: none; //removes bullet points 
   padding: 0;
   margin: 0;
 }

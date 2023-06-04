@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Music Tracker App</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./scss/main.scss" />
   <!-- Fonts from Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,10 @@
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet">
+  <!-- p5.js library is used for the background canvas visualisations. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
   <script src="background.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
   <!-- Font Awesome Library is used for icons. -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
@@ -23,29 +26,48 @@
   <!-- Header contains Navigation Menu and Add Song Button  -->
   <header>
     <button id="addSongButton" class="plusButton" aria-label="Add Song"><i class="fas fa-plus"></i></button>
-    <h1>Moodify</h1>
+    <h1>My Songs</h1>
     <nav class="navigation">
       <ul>
-        <li id="mySongsNav"><a href="#songs">My Songs</a></li>
+        <li id="mySongsNav"><a href="#songs">Press ENTER and start typing...</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="main">
+    <!-- background is made using p5js library -->
     <section id="backgroundCanvas"></section>
-    <dialog id="confirmDialog">
+    <!-- confirmation dialog/pop up when adding a new song -->
+    <dialog id="addDialog">
       <h2>Are you sure?</h2>
       <p>Do you really want to add this song?</p>
       <menu>
         <button id="confirmYes">Yes</button>
         <button id="confirmNo">No</button>
       </menu>
-    </dialog>    
+    </dialog>
+    <!-- confirmation to delete a song -->
+    <dialog id="deleteDialog">
+      <h2>Are you sure?</h2>
+      <p>Do you really want to delete this song?</p>
+      <menu>
+        <button id="confirmYes">Yes</button>
+        <button id="confirmNo">No</button>
+      </menu>
+    </dialog>
+    <!-- pop up to view the song details when clicking a song -->
+    <dialog id="detailDialog">
+      <h2>Song Details</h2>
+      <div id="songDetail"></div>
+      <menu>
+        <button id="closeDetail">Close</button>
+      </menu>
+    </dialog>
     
     <section id="mySongsContainer" class="container">
       <form action="#mySongs" method="post" id="form" style="display: block">
         <label for="songName">Song</label>
-        <input type="text" name="songName" id="songName" required />
+        <input type="text" name="songName" id="songName" autocomplete="off" required />
         <label for="artistName">Artist</label>
         <input type="text" name="artistName" id="artistName" required />
         <label for="albumName">Album</label>
@@ -77,11 +99,6 @@
     </section>
 
     <script src="script.js"></script>
-    <!-- p5.js library is used for the background canvas visualisations. -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
-    <!-- D3.js library is used for the data visualisation. -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-
 </body>
 
 </html>

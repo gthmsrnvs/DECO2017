@@ -46,7 +46,7 @@ Remember, you can always stop your server by pressing 'Control + C'.
 
    This will create a 'output' folder with all your bundled/minified files. Now, the app is ready for deployment!
 
-6. **Run the Project:**
+6. **Run the Project:** (optional)
    You can now run your project using the following command:
 
    ```bash

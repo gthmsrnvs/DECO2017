@@ -31,7 +31,7 @@ function updateSongList() {
   // Iterate over the songs array and create list items for each song
   songs.forEach(song => {
     const listItem = document.createElement('li');
-    listItem.innerHTML = `${song.name} by ${song.artist} <br> Mood: ${song.mood}`;
+    listItem.innerHTML = `${song.name} by ${song.artist}`;
     songList.appendChild(listItem);
 
     listItem.addEventListener('click', function () {

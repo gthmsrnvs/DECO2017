@@ -25,7 +25,7 @@ Ensure that you have Node.js and a git client installed. If you do not, you can 
    npm install
    ```
 
-4. **Run development server::**
+4. **Run development server:**
 
    You can now run your development server using the following command:
 

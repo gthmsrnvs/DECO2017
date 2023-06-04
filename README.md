@@ -24,16 +24,8 @@ Ensure that you have Node.js and a git client installed. If you do not, you can 
    ```bash
    npm install
    ```
-4. **Building the Project:**
-   Finally, to build your project, you can use the following command:
 
-   ```bash
-   npm run prestart
-   ```
-
-   This will create a 'dist' folder with all your bundled files. Now, the app is ready for deployment!
-
-5. **Run development server:**
+4. **Run development server:**
 
    You can now run your development server using the following command:
 
@@ -41,6 +33,23 @@ Ensure that you have Node.js and a git client installed. If you do not, you can 
    npm run dev
    ```
 
-   The server will be live at `https://localhost:1234`.
+   The server will be live at `https://localhost:1234`. This enables hotreloading, so any changes you make to your code will be reflected in the browser immediately.
 
 Remember, you can always stop your server by pressing 'Control + C'.
+
+5. **Building the Project:** (optional)
+   Once development is complete, to build your project, you can use the following command:
+
+   ```bash
+   npm run prestart
+   ```
+
+   This will create a 'output' folder with all your bundled/minified files. Now, the app is ready for deployment!
+
+6. **Run the Project:**
+   You can now run your project using the following command:
+
+   ```bash
+   node server.js
+   ```
+This will run the bundled application suitable for production as it is more efficient.

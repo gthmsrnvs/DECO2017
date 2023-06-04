@@ -14,7 +14,7 @@ app.use(express.static('dist'));
 
 // this is serving the index.html file from the dist folder
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + 'dist/index.html');
+    res.sendFile(__dirname + 'output/index.html'); //runs a minified version of the code in the output folder
 });
 
 // Create an HTTP server that listens for requests and sends responses. This server is 

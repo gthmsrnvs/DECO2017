@@ -4,17 +4,12 @@ const mySongsContainer = document.querySelector('.mySongsContainer');
 const songListContainer = document.querySelector('.song-list-container');
 const songList = document.getElementById('songList');
 const form = document.getElementById('form');
-const mySongsNav = document.getElementById('mySongsNav');
 const addDialog = document.getElementById('addDialog');
 const deleteDialog = document.getElementById('deleteDialog');
 
 const confirmYes = document.getElementById('confirmYes');
 const confirmNo = document.getElementById('confirmNo');
 
-//Navigation menu event listeners
-mySongsNav.addEventListener('click', function () {
-  mySongsContainer.style.display = mySongsContainer.style.display === 'block' ? 'none' : 'block';
-});
 
 // Array to hold songs
 let songs = [];

@@ -6,21 +6,6 @@ body {
   overflow: auto;
   /* Header Styles */
   header {
-    /* Button styles */
-    .plusButton {
-      width: 60px;
-      height: 60px;
-      top: 10px;
-      left: 10px;
-      position: fixed;
-      background-color: rgba(255, 255, 255, 0.2);
-      border: none;
-      backdrop-filter: blur(10px);
-      box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      color: #000;
-      z-index: 1000;
-    }
     text-align: center;
     h1 {
       font-size: 10rem;
@@ -34,7 +19,7 @@ body {
         justify-content: space-around;
         align-items: center;
         list-style-type: none;
-        background-color: #ff6a00;
+        background-color: #ff6f00;
         li {
           padding: 10px 20px;
         }
@@ -50,8 +35,8 @@ body {
     justify-content: space-between;
     max-height: fit-content;
     /*dialog styles*/
-    dialog{
-      background-color: #ff6f00;
+    dialog {
+      background-color: #5c5c5c;
       color: #ddd;
       padding: 3%;
       justify-content: center;
@@ -60,106 +45,101 @@ body {
         background-color: rgba(0, 0, 0, 0.835);
       }
       .btn {
-        background-color: #ffffff;
+        padding: 10px;
+        background-color: #ff3f3f;
+        border: none;
         border-radius: 5px;
-        padding: 5px;
-        margin: auto;
         color: #1a1a1a;
         cursor: pointer;
+        transition: background-color 200ms;
+      }
+      .btn:hover {
+        background-color: #f7f7f7;
+        color: #1a1a1a;
+      }
+    }
+    .container {
+      width: 80%;
+      margin: auto;
+      background-color: #1a1a1a;
+      padding: 5vh;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 100%;
+      overflow: auto;
+    }
+    /* This rule targets direct child elements of elements with the class ".container" */
+    .container > * {
+      flex: 1 1 30%; /* Set flexible properties for flexbox layout */
+      /* The flex-grow value of 1 allows the item to grow proportionally to other items */
+      /* The flex-shrink value of 1 allows the item to shrink equally with other items */
+      /* The flex-basis value of 30% sets the initial size of the item to 30% of the container's width */
+    }
+    /*form styles*/
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 30%;
+      margin: 0 auto;
+      /*input styles*/
+      input[type="text"] {
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        background-color: #1a1a1a;
+        color: #f7f7f7;
+      }
+      input[type="submit"] {
+        padding: 10px;
+        background-color: #ff3f3f;
+        border: none;
+        border-radius: 5px;
+        color: #1a1a1a;
+        cursor: pointer;
+        transition: background-color 200ms;
+      }
+      input[type="submit"]:hover {
+        background-color: #f7f7f7;
+        color: #1a1a1a;
+      }
+      label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .rating {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        direction: rtl;
+        > input {
+          display: none;
+        }
+        > label {
+          font-size: 25px;
+          color: #ddd;
+          cursor: pointer;
+          display: inline-block;
+          margin: 0;
+          transition: color 200ms;
+        }
+      }
+      // Star Rating system styles
+      .rating > input:checked ~ label, /* show gold star when clicked */
+      .rating:not(:checked) > label:hover, /* hover current star */
+      .rating:not(:checked) > label:hover ~ label {
+        /* hover previous stars in list */
+        color: #fcff3f;
       }
     }
   }
-
-}
-
-.container {
-  width: 80%;
-  margin: auto;
-  background-color: #1a1a1a;
-  padding: 5vh;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 100%;
-  overflow: auto;
-}
-
-/* This rule targets direct child elements of elements with the class ".container" */
-.container > * {
-  flex: 1 1 30%; /* Set flexible properties for flexbox layout */
-  /* The flex-grow value of 1 allows the item to grow proportionally to other items */
-  /* The flex-shrink value of 1 allows the item to shrink equally with other items */
-  /* The flex-basis value of 30% sets the initial size of the item to 30% of the container's width */
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 30%;
-  margin: 0 auto;
-}
-
-form input[type="text"] {
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  background-color: #1a1a1a;
-  color: #f7f7f7;
-}
-
-label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.rating {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  direction: rtl;
-}
-
-.rating > input {
-  display: none;
-}
-
-.rating > label {
-  font-size: 25px;
-  color: #ddd;
-  cursor: pointer;
-  display: inline-block;
-  margin: 0;
-  transition: color 200ms;
-}
-
-// Star Rating system styles
-.rating > input:checked ~ label, /* show gold star when clicked */
-.rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label {
-  /* hover previous stars in list */
-  color: #fcff3f;
-}
-
-form input[type="submit"] {
-  padding: 10px;
-  background-color: #ff3f3f;
-  border: none;
-  border-radius: 5px;
-  color: #1a1a1a;
-  cursor: pointer;
-  transition: background-color 200ms;
-}
-
-form input[type="submit"]:hover {
-  background-color: #f7f7f7;
-  color: #1a1a1a;
 }
 
 #song-list-aside {
@@ -183,19 +163,18 @@ form input[type="submit"]:hover {
   list-style: none; //removes bullet points
   padding: 0;
   margin: 0;
-}
+  // styling the song list to look like a playlist
+  li {
+    padding: 10px;
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #ddd;
+    color: #f7f7f7;
+    cursor: pointer;
+  }
+  li:hover {
+    background-color: #333;
+  }
 
-// styling the song list to look like a playlist
-#songList li {
-  padding: 10px;
-  background-color: #1a1a1a;
-  border-bottom: 1px solid #ddd;
-  color: #f7f7f7;
-  cursor: pointer;
-}
-
-#songList li:hover {
-  background-color: #333;
 }
 
 #songList li button {
@@ -222,25 +201,6 @@ form input[type="text"],
 form input[type="submit"] {
   display: block;
   margin: 10px auto;
-}
-
-/* Search Navigation */
-/* hide input field in nav */
-#searchInput {
-  display: none;
-}
-
-#searchButton {
-  background-color: #ff3f3f;
-  border: none;
-  color: #f7f7f7;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
 }
 
 @keyframes rotation {

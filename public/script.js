@@ -33,6 +33,7 @@ function updateSongList() {
     listItem.innerHTML = `${song.name} by ${song.artist}`;
     songList.appendChild(listItem);
 
+    //Each song has an event listener that can be clicked to show a detailed view.
     listItem.addEventListener('click', function () {
       const detailDialog = document.getElementById('detailDialog');
       const detailView = document.getElementById('songDetail');
@@ -44,14 +45,14 @@ function updateSongList() {
       detailDialog.showModal();
     });
 
-    //Each song has an event listener that can be clicked to show a detailed view.
+    //Each list item has a delete button appended to it as a child element.
     const button = document.createElement('button');
     button.innerHTML = '<i class="fas fa-trash-alt"></i>'; //use font awesome icon for trash can
     listItem.appendChild(button);
 
     //Delete button event listener
     button.addEventListener('click', function () {
-      stopPropagation(); //This method stops the event from propagating to the parent elements, effectively preventing the details pop up from appearing when the delete button is clicked.
+      event.stopPropagation(); //This method stops the event from propagating to the parent elements, effectively preventing the details pop up from appearing when the delete button is clicked.
       // Show confirmation prompt
       deleteDialog.showModal();
       // if yes is clicked, delete song and close dialog
@@ -64,11 +65,11 @@ function updateSongList() {
         updateSongList();
         // Close the dialog
         deleteDialog.close();
-      });
+      }); 
       deleteNo.addEventListener('click', function () {
         // Close the dialog without deleting if No is clicked
         deleteDialog.close();
-      }, { once: true }); //once: true means the event listener will only run once
+      }); 
     });
   });
 };

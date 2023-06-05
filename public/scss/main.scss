@@ -1,4 +1,6 @@
 body {
+  /* Global Styles for font, color and overflow */
+  /*fonts are imported from google fonts CDN*/
   font-family: "space grotesk", sans-serif;
   font-size: 18px;
   background-color: #1c1c1c;
@@ -15,6 +17,7 @@ body {
     /* Navigation Styles */
     nav {
       ul {
+        /*ensures the list is displayed as a horizontal row and its contents are centred*/
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -190,19 +193,45 @@ body {
   }
 }
 
-/* Media Queries and CSS Breakpoints*/
+
+/* Media Queries and CSS Breakpoints:
+This ensure the app is responsive, functional and user friendly on all screen sizes */
+
 @media screen and (max-width: 1920px) {
-  /* Styles for screens with a maximum width of 1920px (typical for desktops) */
+  /* For larger desktop screens, increase the size of the song list for easier reading and interaction. */
+  #song-list-aside {
+    width: 60%;
+  }
 }
 
 @media screen and (max-width: 1024px) {
-  /* Styles for screens with a maximum width of 1024px (typical for laptops) */
+  /* For smaller laptop screens, adjust the song list and container width to a smaller size to ensure they fit within the viewport */
+  #song-list-aside {
+    width: 50%;
+  }
+  .container {
+    width: 85%;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  /* Styles for screens with a maximum width of 768px (typical for tablets and smartphones) */
+  /* For tablets and smaller devices, present the song list and container in a single column for better readability */
+  .container, #song-list-aside {
+    width: 100%;
+  }
+  /* Make the font a little smaller to better fit the viewport */
+  body {
+    font-size: 16px;
+  }
 }
 
 @media screen and (max-width: 480px) {
-  /* Styles for screens with a maximum width of 480px (typical for smartphones) */
+  /* For mobile devices, continue with the single-column layout and make further adjustments for the smaller screen size. */
+  body {
+    font-size: 14px; /* Decrease font size */
+  }
+  /* Make the song list items and buttons larger for easier interaction on a touchscreen */
+  #songList li, button {
+    padding: 15px;
+  }
 }

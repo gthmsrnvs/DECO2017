@@ -146,55 +146,54 @@ body {
         color: #fcff3f;
       }
     }
-  }
-}
-
-#song-list-aside {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  background-color: #1a1a1a;
-  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
-  max-height: 50vh;
-  border: #000;
-  overflow: none;
-  padding-left: 3%;
-  padding-bottom: 3%;
-  /*song list styles*/
-  #songList {
-    max-height: 100%;
-    overflow-y: auto;
-    flex-grow: 1; //makes the element grow to fill the parent aside element
-    list-style: none; //removes bullet points
-    padding: 0;
-    margin: 0;
-    // styling the song list to look like a playlist
-    li {
-      padding: 10px;
+    #song-list-aside {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
       background-color: #1a1a1a;
-      border-bottom: 1px solid #ddd;
-      color: #f7f7f7;
-      cursor: pointer;
-      button {
-        border: none;
-        background: transparent;
-        color: #fff;
-        font-size: 14px;
-        cursor: pointer;
+      box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      max-height: 50vh;
+      border: #000;
+      overflow: none;
+      padding: 3%;
+      /*song list styles*/
+      #songList {
+        max-height: 100%;
+        overflow-y: auto;
+        flex-grow: 1; //makes the element grow to fill the parent aside element
+        list-style: none; //removes bullet points
+        padding: 0;
+        margin: 0;
+        // styling the song list to look like a playlist
+        li {
+          padding: 10px;
+          background-color: #1a1a1a;
+          border-bottom: 1px solid #ddd;
+          color: #f7f7f7;
+          cursor: pointer;
+          button {
+            border: none;
+            background: transparent;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+          }
+          button:hover {
+            color: #ff3f3f;
+          }
+        }
+        li:hover {
+          background-color: #333;
+        }
       }
-      button:hover {
-        color: #ff3f3f;
-      }
-    }
-    li:hover {
-      background-color: #333;
     }
   }
 }
 
 
-/* Media Queries and CSS Breakpoints:
+
+/* Media Queries and CSS Breakpoints/
 This ensure the app is responsive, functional and user friendly on all screen sizes */
 
 @media screen and (max-width: 1920px) {

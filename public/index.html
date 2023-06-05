@@ -24,9 +24,8 @@
 </head>
 
 <body>
-  <!-- Header contains Navigation Menu and Add Song Button  -->
+  <!-- Header contains Navigation Menu and Help Button  -->
   <header>
-    <button id="addSongButton" class="plusButton" aria-label="Add Song"><i class="fas fa-question"></i></button>
     <h1>My Songs</h1>
     <nav class="navigation">
       <ul>
@@ -39,29 +38,29 @@
     <!-- background is made using p5js library -->
     <section id="backgroundCanvas"></section>
     <!-- confirmation dialog/pop up when adding a new song -->
-    <dialog id="addDialog">
+    <dialog id="addDialog" class="dialog">
       <h2>Are you sure?</h2>
       <p>Do you really want to add this song?</p>
       <menu>
-        <button id="confirmYes">Yes</button>
-        <button id="confirmNo">No</button>
+        <button id="confirmYes" class="btn">Yes</button>
+        <button id="confirmNo" class="btn">No</button>
       </menu>
     </dialog>
     <!-- confirmation to delete a song -->
-    <dialog id="deleteDialog">
+    <dialog id="deleteDialog" class="dialog">
       <h2>Are you sure?</h2>
       <p>Do you really want to delete this song?</p>
       <menu>
-        <button id="deleteYes">Yes</button>
-        <button id="deleteNo">No</button>
+        <button id="deleteYes" class="btn">Yes</button>
+        <button id="deleteNo" class="btn">No</button>
       </menu>
     </dialog>
     <!-- pop up to view the song details when clicking a song -->
-    <dialog id="detailDialog">
+    <dialog id="detailDialog" class="dialog">
       <h2>Song Details</h2>
       <div id="songDetail"></div>
       <menu>
-        <button id="closeDetail">Close</button>
+        <button id="closeDetail" class="btn">Close</button>
       </menu>
     </dialog>
     
@@ -98,6 +97,7 @@
         </ul>
       </aside>
     </section>
+  </main>
 
     <script src="script.js"></script>
 </body>

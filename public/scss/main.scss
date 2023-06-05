@@ -3,74 +3,73 @@ body {
   font-size: 18px;
   background-color: #1c1c1c;
   color: #f7f7f7;
-  overflow: hidden;
-}
+  overflow: auto;
+  /* Header Styles */
+  header {
+    /* Button styles */
+    .plusButton {
+      width: 60px;
+      height: 60px;
+      top: 10px;
+      left: 10px;
+      position: fixed;
+      background-color: rgba(255, 255, 255, 0.2);
+      border: none;
+      backdrop-filter: blur(10px);
+      box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      color: #000;
+      z-index: 1000;
+    }
+    text-align: center;
+    h1 {
+      font-size: 10rem;
+      font-family: "monofett", monospace;
+      margin: 0;
+    }
+    /* Navigation Styles */
+    nav {
+      ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        list-style-type: none;
+        background-color: #ff6a00;
+        li {
+          padding: 10px 20px;
+        }
+      }
+    }
+  }
 
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
+  /* Main Styles */
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    max-height: fit-content;
+    /*dialog styles*/
+    dialog{
+      background-color: #ff6f00;
+      color: #ddd;
+      padding: 3%;
+      justify-content: center;
+      align-items: center;
+      dialog::backdrop {
+        background-color: rgba(0, 0, 0, 0.835);
+      }
+      .btn {
+        background-color: #ffffff;
+        border-radius: 5px;
+        padding: 5px;
+        margin: auto;
+        color: #1a1a1a;
+        cursor: pointer;
+      }
+    }
+  }
 
-/* Button styles */
-.plusButton {
-  width: 60px;
-  height: 60px;
-  top: 10px;
-  left: 10px;
-  position: fixed;
-  background-color: rgba(255, 255, 255, 0.2);
-  border: none;
-  backdrop-filter: blur(10px);
-  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  color: #000;
-  z-index: 1000;
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
-}
-
-.plusButton:active {
-  transform: translateY(4px);
-  box-shadow: 0px 1px 5px 0px rgba(255, 255, 255, 0.1);
-}
-
-.plusButton span {
-  position: absolute;
-  width: 50%;
-  height: 2px;
-  background-color: #000;
-}
-
-.plusButton .horizontal {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.plusButton .vertical {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(90deg);
-}
-
-.plusButton.close .horizontal {
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.plusButton.close .vertical {
-  transform: translate(-50%, -50%) rotate(135deg);
-}
-
-/* Header Styles */
-header {
-  text-align: center;
-}
-
-header h1 {
-  font-size: 10rem;
-  font-family: "monofett", monospace;
-  margin: 0;
 }
 
 .container {
@@ -93,21 +92,6 @@ header h1 {
   /* The flex-grow value of 1 allows the item to grow proportionally to other items */
   /* The flex-shrink value of 1 allows the item to shrink equally with other items */
   /* The flex-basis value of 30% sets the initial size of the item to 30% of the container's width */
-}
-
-nav ul {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  list-style-type: none;
-  background-color: #ff6a00;
-}
-
-nav ul li {
-  background-color: transparent;
-  margin: 0 10px;
-  padding: 10px 20px;
-  transition: transform 0.3s ease;
 }
 
 form {
@@ -158,7 +142,8 @@ label {
 // Star Rating system styles
 .rating > input:checked ~ label, /* show gold star when clicked */
 .rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label { /* hover previous stars in list */
+.rating:not(:checked) > label:hover ~ label {
+  /* hover previous stars in list */
   color: #fcff3f;
 }
 
@@ -192,10 +177,10 @@ form input[type="submit"]:hover {
 }
 
 #songList {
-  max-height: 100%; 
+  max-height: 100%;
   overflow-y: auto;
   flex-grow: 1; //makes the element grow to fill the parent aside element
-  list-style: none; //removes bullet points 
+  list-style: none; //removes bullet points
   padding: 0;
   margin: 0;
 }

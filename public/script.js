@@ -13,7 +13,7 @@ const confirmNo = document.getElementById('confirmNo');
 const songNameInput = document.getElementById('songName');
 
 // Set focus on the song input field when the page loads
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
   songNameInput.focus();
 });
 
@@ -52,7 +52,7 @@ function updateSongList() {
 
     //Delete button event listener
     button.addEventListener('click', function () {
-      event.stopPropagation(); //This method stops the event from propagating to the parent elements, effectively preventing any higher-level event listeners from being triggered.
+      stopPropagation(); //This method stops the event from propagating to the parent elements, effectively preventing the details pop up from appearing when the delete button is clicked.
       // Show confirmation prompt
       deleteDialog.showModal();
       // if yes is clicked, delete song and close dialog
@@ -83,7 +83,6 @@ document.getElementById('closeDetail').addEventListener('click', function () {
 addSongBtn.addEventListener('click', function () {
   //Toggle the form between visible and hidden
   addSongBtn.classList.toggle('clicked');
-
 });
 
 let song; // to hold the song object when the form is submitted
@@ -119,16 +118,16 @@ confirmNo.addEventListener('click', function () {
 
 // Handle form submission
 form.addEventListener('submit', function (event) {
-  event.preventDefault();
+  event.preventDefault(); // Prevent the form from submitting and reloading the page
 
   // Generate a unique ID for the song
   // const songID = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
-  const songID = uuidv4(); //UUID is a Universally Unique Identifier. It is a 128-bit number used to identify information in computer systems.
+  const songID = uuidv4(); //UUID is a Universally Unique Identifier. It is a 128-bit number used to identify information in computer systems worldwide. It is generated through the JSdelivr CDN.
   console.log(songID); // This will output a new unique identifier each time the page is reloaded
 
   // Create a song object with form input values
   song = {
-    ID: songID, //this is a Universally Unique Identifier generated through the JSdelivr CDN
+    ID: songID, //this is a Universally Unique Identifier
     name: document.getElementById('songName').value,
     artist: document.getElementById('artistName').value,
     album: document.getElementById('albumName').value,

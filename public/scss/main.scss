@@ -85,7 +85,7 @@ body {
       align-items: center;
       justify-content: center;
       text-align: center;
-      width: 30%;
+      width: 100%;
       margin: 0 auto;
       /*input styles*/
       input[type="text"] {
@@ -95,6 +95,8 @@ body {
         border: 1px solid #ddd;
         background-color: #1a1a1a;
         color: #f7f7f7;
+        display: block;
+        margin: 10px auto;
       }
       input[type="submit"] {
         padding: 10px;
@@ -104,6 +106,8 @@ body {
         color: #1a1a1a;
         cursor: pointer;
         transition: background-color 200ms;
+        display: block;
+        margin: 10px auto;
       }
       input[type="submit"]:hover {
         background-color: #f7f7f7;
@@ -154,66 +158,36 @@ body {
   overflow: none;
   padding-left: 3%;
   padding-bottom: 3%;
-}
-
-#songList {
-  max-height: 100%;
-  overflow-y: auto;
-  flex-grow: 1; //makes the element grow to fill the parent aside element
-  list-style: none; //removes bullet points
-  padding: 0;
-  margin: 0;
-  // styling the song list to look like a playlist
-  li {
-    padding: 10px;
-    background-color: #1a1a1a;
-    border-bottom: 1px solid #ddd;
-    color: #f7f7f7;
-    cursor: pointer;
+  /*song list styles*/
+  #songList {
+    max-height: 100%;
+    overflow-y: auto;
+    flex-grow: 1; //makes the element grow to fill the parent aside element
+    list-style: none; //removes bullet points
+    padding: 0;
+    margin: 0;
+    // styling the song list to look like a playlist
+    li {
+      padding: 10px;
+      background-color: #1a1a1a;
+      border-bottom: 1px solid #ddd;
+      color: #f7f7f7;
+      cursor: pointer;
+      button {
+        border: none;
+        background: transparent;
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      button:hover {
+        color: #ff3f3f;
+      }
+    }
+    li:hover {
+      background-color: #333;
+    }
   }
-  li:hover {
-    background-color: #333;
-  }
-
-}
-
-#songList li button {
-  border: none;
-  background: transparent;
-  color: #fff;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-#songList li button:hover {
-  color: #ff3f3f;
-}
-
-form#form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-form input[type="text"],
-form input[type="submit"] {
-  display: block;
-  margin: 10px auto;
-}
-
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(45deg);
-  }
-}
-
-.rotate {
-  animation: rotation 0.5s linear;
 }
 
 /* Media Queries and CSS Breakpoints*/

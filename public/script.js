@@ -1,5 +1,4 @@
 // Variables to store references to HTML elements
-const addSongBtn = document.getElementById('addSongButton'); //button to toggle form visibility
 const mySongsContainer = document.querySelector('.mySongsContainer');
 const songListContainer = document.querySelector('.song-list-container');
 const songList = document.getElementById('songList');
@@ -77,12 +76,6 @@ function updateSongList() {
 // Close detail view on 'Close' button click
 document.getElementById('closeDetail').addEventListener('click', function () {
   document.getElementById('detailDialog').close();
-});
-
-// Randomise colours using addSongBtn event listener
-addSongBtn.addEventListener('click', function () {
-  //Toggle the form between visible and hidden
-  addSongBtn.classList.toggle('clicked');
 });
 
 let song; // to hold the song object when the form is submitted

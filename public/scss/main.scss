@@ -1,29 +1,58 @@
+/* Global Body Styles */
 body {
-  /* Global Styles for font, color and overflow */
-  /*fonts are imported from google fonts CDN*/
-  font-family: "space grotesk", sans-serif;
+  // Establishing the base font family for the entire application.
+  // This font is applied unless specifically overridden by another rule.
+  font-family: "space grotesk", sans-serif; //font imported from google fonts
+
+  // Establishing the base font size for the application.
   font-size: 18px;
+
+  // Setting the background color for the application.
+  // A dark background is chosen for a more immersive experience and for contrast against lighter text.
   background-color: #1c1c1c;
+
+  // The color of the base text in the application.
+  // Light gray is chosen to contrast well against the dark background.
   color: #f7f7f7;
+
+  // overflow: auto ensures that if the content exceeds the viewport,
+  // the browser will provide scrollbars to view the rest of the content.
   overflow: auto;
+
   /* Header Styles */
   header {
+    // All text within the header will be center-aligned, providing a clean and symmetrical layout.
     text-align: center;
     h1 {
+      // The main title on the page is significantly larger to create visual hierarchy.
       font-size: 10rem;
+
+      // The title uses a different font family here for uniqueness and branding purposes.
       font-family: "monofett", monospace;
+
+      // Removing default margins to allow more precise control over the positioning of the title.
       margin: 0;
     }
+
     /* Navigation Styles */
     nav {
       ul {
-        /*ensures the list is displayed as a horizontal row and its contents are centred*/
+        // Flexbox is a powerful CSS tool that is used to layout the navigation items in rows and center them.
         display: flex;
         justify-content: space-around;
         align-items: center;
+
+        // Removing the default bullet styling of the list items for a cleaner navigation design.
         list-style-type: none;
+
+        // The bright orange background creates contrast against the dark overall theme,
+        // making the navigation stand out.
         background-color: #ff6f00;
+
         li {
+          // The navigation items are styled as buttons to make them more interactive.
+          // Adding some padding to each navigation item. This creates space around the text,
+          // making the items easier to click or tap, and visually separates the items from each other.
           padding: 10px 20px;
         }
       }
@@ -32,21 +61,43 @@ body {
 
   /* Main Styles */
   main {
+    // The main content area is also designed with a flexbox layout.
+    // By setting the direction to column, the main content blocks (children of 'main') stack vertically.
     display: flex;
     flex-direction: column;
+
+    // Align-items and justify-content are used to center the main content blocks horizontally and vertically.
     align-items: center;
     justify-content: space-between;
+
+    // Setting max-height to fit-content makes the main element only as tall as it needs to be to contain its content,
+    // rather than filling the entire screen.
     max-height: fit-content;
+
     /*dialog styles*/
     dialog {
+      // Dark gray background for dialog boxes provides contrast against the main dark background.
       background-color: #5c5c5c;
+
+      // Light gray text color for readability against the dark dialog background.
       color: #ddd;
+
+      // Adding a bit of padding within the dialog box to provide space around the inner content.
       padding: 3%;
+
+      // Aligning the content of the dialog box to the center, both horizontally and vertically.
       justify-content: center;
       align-items: center;
+
+      // dialog::backdrop allows for styling of the backdrop (background outside of the dialog box) when the dialog box is displayed.
+      // Here, it's set to a semi-transparent black to create a dimming effect on the rest of the page.
       dialog::backdrop {
         background-color: rgba(0, 0, 0, 0.835);
       }
+
+      // Styling the buttons within the dialog box.
+      // Bright red is used for contrast and to draw attention to these interactive elements.
+      // Rounded corners and no border complement the modern, clean aesthetic.
       .btn {
         padding: 10px;
         background-color: #ff3f3f;
@@ -54,43 +105,63 @@ body {
         border-radius: 5px;
         color: #1a1a1a;
         cursor: pointer;
+
+        // The transition property smoothly animates changes in property values.
+        // Here, it's used to create a smooth color change when the button is hovered over.
         transition: background-color 200ms;
       }
+
+      // Hovering over a button changes its color, providing a visual cue that it's interactive.
       .btn:hover {
         background-color: #f7f7f7;
         color: #1a1a1a;
       }
     }
+
+    // The container class is used for major sections of content. It sets up flexbox and a series of aesthetic properties.
     .container {
-      width: 80%;
+      width: 80%; // The container will take up 80% of the width of its parent, centered due to automatic margins.
       margin: auto;
       background-color: #1a1a1a;
-      padding: 5vh;
+      padding: 5vh; // A padding of 5vh (5% of the viewport height) is added on all sides of the container.
       border-radius: 5px;
       box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: wrap; // flex-wrap: wrap allows the flex items to wrap onto multiple lines instead of squishing together.
       justify-content: space-between;
-      max-width: 100%;
-      overflow: auto;
+      max-width: 100%; // Prevents the container from going beyond the width of its parent.
+      overflow: auto; // If the container's content is too big to fit, the browser will provide scrollbars.
     }
-    /* This rule targets direct child elements of elements with the class ".container" */
+
+    // This rule targets direct child elements of elements with the class ".container"
     .container > * {
-      flex: 1 1 30%; /* Set flexible properties for flexbox layout */
-      /* The flex-grow value of 1 allows the item to grow proportionally to other items */
-      /* The flex-shrink value of 1 allows the item to shrink equally with other items */
-      /* The flex-basis value of 30% sets the initial size of the item to 30% of the container's width */
+      // Set flexible properties for flexbox layout
+      // The flex-grow value of 1 allows the item to grow proportionally to other items
+      // The flex-shrink value of 1 allows the item to shrink equally with other items
+      // The flex-basis value of 30% sets the initial size of the item to 30% of the container's width
+      flex: 1 1 30%;
     }
-    /*form styles*/
+
+    // Styles for form elements, aimed at creating a consistent and user-friendly interface for form inputs.
     form {
+      // This form uses a flexbox layout to position its elements.
+      // Setting the direction to column stacks the form elements vertically.
       display: flex;
       flex-direction: column;
+
+      // Centering the form elements both horizontally and vertically.
       align-items: center;
       justify-content: center;
+
+      // Center aligning the text within the form elements for a clean, symmetrical look.
       text-align: center;
+
+      // Form takes up the full width of its parent to maximize visibility and accessibility of the form elements.
       width: 100%;
-      margin: 0 auto;
-      /*input styles*/
+
+      // Styles for text input elements.
+      // Aesthetic properties like padding, background color, and border are set for a clean, modern look.
+      // The margin-bottom adds some space below each input, separating them from each other.
       input[type="text"] {
         padding: 10px;
         margin-bottom: 20px;
@@ -101,6 +172,8 @@ body {
         display: block;
         margin: 10px auto;
       }
+
+      // Styles for the submit button. It has a higher contrast color to stand out, and padding for clickability.
       input[type="submit"] {
         padding: 10px;
         background-color: #ff3f3f;
@@ -112,52 +185,80 @@ body {
         display: block;
         margin: 10px auto;
       }
+
+      // Changing the submit button's color on hover provides a visual cue that it's interactive.
       input[type="submit"]:hover {
         background-color: #f7f7f7;
         color: #1a1a1a;
       }
+
+      // Styling for form labels.
+      // Flexbox is used to ensure labels' content is centered both horizontally and vertically.
       label {
         display: flex;
         justify-content: center;
         align-items: center;
       }
+      // Styles for the rating system.
+      // A Flexbox layout is used to neatly arrange the rating components.
       .rating {
         display: flex;
         justify-content: center;
         align-items: center;
+
+        // This rule changes the text direction to right-to-left.
+        // This is useful when you want the star rating to start from the right.
         direction: rtl;
+
+        // Hiding the actual radio input elements, as we will be using the label elements for interaction.
         > input {
           display: none;
         }
+
+        // Styling the label elements that are used for the star rating.
+        // The cursor: pointer property changes the cursor to a hand symbol when hovering over a label, indicating it's interactive.
         > label {
           font-size: 25px;
           color: #ddd;
           cursor: pointer;
           display: inline-block;
           margin: 0;
+
+          // This transition will animate the color change when a label is hovered over or selected.
           transition: color 200ms;
         }
       }
+
       // Star Rating system styles
-      .rating > input:checked ~ label, /* show gold star when clicked */
-      .rating:not(:checked) > label:hover, /* hover current star */
+      // Changing the color of the star rating labels based on user interaction.
+      // When a rating input is checked, or when a label is hovered over, the color of the associated label (the star) is changed to gold.
+      .rating > input:checked ~ label, //show gold stars when clicked 
+      .rating:not(:checked) > label:hover, // hover current star 
       .rating:not(:checked) > label:hover ~ label {
-        /* hover previous stars in list */
+        // hover previous stars in list
         color: #fcff3f;
       }
     }
+
+    // Styling the aside element that holds the song list.
+    // The width is set to 50% of its parent, and it uses a Flexbox layout to position its children vertically.
     #song-list-aside {
       display: flex;
       flex-direction: column;
       width: 50%;
       background-color: #1a1a1a;
-      box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
+      box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1); //define the shape of the element using a shadow
       border-radius: 5px;
       max-height: 50vh;
       border: #000;
       overflow: none;
       padding: 3%;
-      /*song list styles*/
+      padding-top: 0;
+
+      //Song list styles
+      // Styling for the song list itself.
+      // The max-height property prevents the list from getting too long, with overflow-y: auto providing a scrollbar when necessary.
+      // The list-style property is set to none to remove default bullet points.
       #songList {
         max-height: 100%;
         overflow-y: auto;
@@ -165,13 +266,20 @@ body {
         list-style: none; //removes bullet points
         padding: 0;
         margin: 0;
-        // styling the song list to look like a playlist
+
+        // Styling individual list items.
+        // A darker background and a cursor style of pointer is used to indicate that these items are interactive.
+        // A bottom border is added for separation between items.
         li {
           padding: 10px;
           background-color: #1a1a1a;
           border-bottom: 1px solid #ddd;
           color: #f7f7f7;
           cursor: pointer;
+
+          // Styling the buttons inside each list item.
+          // These buttons have no border or background color, and the font size is slightly smaller.
+          // The cursor style of pointer indicates that these buttons are interactive.
           button {
             border: none;
             background: transparent;
@@ -179,10 +287,14 @@ body {
             font-size: 14px;
             cursor: pointer;
           }
+
+          // Changing the color of the delete button when it's hovered over provides a visual cue that it's interactive.
           button:hover {
             color: #ff3f3f;
           }
         }
+
+        // Changing the background color of a list item when it's hovered over provides a visual cue that it's interactive.
         li:hover {
           background-color: #333;
         }
@@ -191,11 +303,8 @@ body {
   }
 }
 
-
-
 /* Media Queries and CSS Breakpoints/
 This ensure the app is responsive, functional and user friendly on all screen sizes */
-
 @media screen and (max-width: 1920px) {
   /* For larger desktop screens, increase the size of the song list for easier reading and interaction. */
   #song-list-aside {
@@ -215,7 +324,8 @@ This ensure the app is responsive, functional and user friendly on all screen si
 
 @media screen and (max-width: 768px) {
   /* For tablets and smaller devices, present the song list and container in a single column for better readability */
-  .container, #song-list-aside {
+  .container,
+  #song-list-aside {
     width: 100%;
   }
   /* Make the font a little smaller to better fit the viewport */
@@ -230,7 +340,8 @@ This ensure the app is responsive, functional and user friendly on all screen si
     font-size: 14px; /* Decrease font size */
   }
   /* Make the song list items and buttons larger for easier interaction on a touchscreen */
-  #songList li, button {
+  #songList li,
+  button {
     padding: 15px;
   }
 }

@@ -1,6 +1,6 @@
 # A3 - Web Prototype by Gautham Srinivas (gsri0828)
 
-# Installation and Setup - Meticulous and easy-to-follow outline of application configuration and deployment procedures, ensuring seamless setup and configuration for future developers. 
+# Installation and Setup  
 
 Ensure that you have Node.js and a git client installed. If you do not, you can download them from the following links: [Node.js](https://nodejs.org/en/download/) and [Git](https://git-scm.com/downloads).
 
@@ -33,13 +33,13 @@ Ensure that you have Node.js and a git client installed. If you do not, you can 
 
 4. **Run development server:**
 
-   You can now run your development server using the following command:
+   You can now run a development server using the following command:
 
    ```bash
    npm run dev
    ```
 
-   The server will be live at `https://localhost:1234`. This enables hotreloading, so any changes you make to the code will be reflected in the browser immediately.
+   The server will be live at `https://localhost:1234`. This enables hot-reloading, so any changes you make to the code will be reflected in the browser immediately.
 
 Remember, you can always stop your server by pressing 'Control + C'.
 
@@ -59,30 +59,71 @@ Remember, you can always stop your server by pressing 'Control + C'.
    node server.js
    ```
 
-2
+# 🎵 Project Overview
 
+The GSRI0828 Tracker is a web application designed to track and manage songs in local storage. The application is built using HTML, JavaScript, and SCSS, and follows a clear and organized development process, with a strong emphasis on functionality and user experience.
 
+## 🚀 Development Process - Iterations
 
-Development Process:
-Iterations:
-Improvements:
-Lessons Learned:
-Best Practices:
-- **Modular code**: The JavaScript code is organized into functions, each with a single responsibility. This makes the code easier to read, understand, and maintain.
-- **Semantic HTML**: The HTML code uses semantic elements for better accessibility and SEO.
-- **SCSS over CSS**: Using SCSS has made managing styles easier thanks to features like variables and nesting.
-- **Local Storage**: The application uses the browser's local storage to persist tasks between sessions.
-- **Responsive Design**: The application is responsive and works well on all screen sizes.
-- **Code Formatting**: The code is formatted using Prettier to ensure consistency and readability.
-- **Git**: The project uses Git for version control, with a clear and descriptive commit history that allows the developer to easily revert to a previous state of the project if needed.
-- **GitHub**: The project is hosted on GitHub and deployed to GitHub pages, which updates automatically whenever new code is pushed to the main branch.
-- **README**: The project includes a README file with installation instructions, a description of the project, what features it includes, what technologies were used, and any other relevant information.
-- **Comments**: The code includes comments where necessary to explain complex logic, or to provide additional context where needed.
+The development of the GSRI0828 Tracker went through several iterations:
 
+1. **Refining the Scope**: The initial phase involved defining the scope of the application based on a previous task. The goal was to create a simple, user-friendly application for tracking and managing songs.
 
-Future Improvements:
-- Database to store the data ensuring scalability as the amount of users increases.
-- Create custom playlists.
-- User authentication where users can create accounts and save their playlists.
+2. **Building the Functionality**: The core functionality of the application was built using HTML and JavaScript. The HTML provides the structure of the application, while the JavaScript handles the application's functionality, such as adding and deleting songs.
+
+3. **Design and Responsiveness**: The final phase involved converting the CSS to SCSS and creating a responsive and aesthetic design. SCSS allowed for better organization and reusability of styles, while responsive design ensures the application looks good on all screen sizes.
+
+# 📚 Code Overview
+
+### HTML (`index.html`)
+
+The HTML file provides the structure of the application. It includes a form for adding songs, a list for displaying the songs, and dialogs for confirming actions and displaying song details.
+
+### SCSS (`main.scss`)
+
+The SCSS file provides the styles for the application. It uses variables for consistent color scheme and mixins for common styles. The SCSS is then compiled into CSS for the browser to interpret.
+
+### JavaScript (`script.js`)
+
+The JavaScript file provides the functionality of the application. It includes:
+
+- Variables to store references to HTML elements.
+- An array to hold songs.
+- Functions to update the song list, add a song to the list, and handle form submission.
+- Event listeners for form submission, clicking on a song, and confirming actions.
+
+## 🎓 Lessons Learned and Best Practices
+
+Throughout the development of the GSRI0828 Tracker, several lessons were learned and best practices were followed:
+
+- **Modular Code**: By separating the HTML, SCSS, and JavaScript, the code is more organized and easier to maintain. Each file has a specific purpose and doesn't interfere with the others.
+
+- **Responsive Design**: By using responsive design techniques in the SCSS, the application looks good on all screen sizes, from mobile to desktop. This improves the user experience and accessibility of the application.
+
+- **Form Validation**: By validating the form inputs in the JavaScript, the application ensures that only valid songs are added to the list. This improves the reliability and usability of the application.
+
+- **Confirmation Dialogs**: By showing confirmation dialogs before performing certain actions, the application prevents accidental data loss. This improves the user experience and trust in the application.
+
+- **SCSS Over CSS**: By using SCSS instead of CSS, the styles are more organized and reusable. Variables and mixins make it easier to maintain a consistent design and make changes.
+
+## 🚧 Future Improvements
+
+While the GSRI0828 Tracker is functional and user-friendly, there are several potential improvements for future iterations:
+
+- **Persistent Data**: Currently, the songs are not saved when the page is refreshed. Implementing persistent data, such as using local storage, would allow the songs to be saved between sessions.
+
+- **Search and Filter**: Adding a search or filter feature would make it easier for users to find specific songs in the list.
+
+- **Sort Songs**: Allowing users to sort the songs by different criteria, such as title or artist, would improve the usability of the application.
+
+- **More Song Details**: Currently, only the title and artistof the song are tracked. Adding more details, such as genre or release date, would make the application more useful.
+
+---
+By Gautham Srinivas (gsri0828) for DECO2017 A3
+
+Criteria:
+In-depth and insightful documentation of the development process, iterations, and improvements, with a strong emphasis on lessons learned and best practices.
+
+Meticulous and easy-to-follow outline of application configuration and deployment procedures, ensuring seamless setup and configuration for future developers. 
 
 Exceptional guidance for future developers to understand and build upon the work, complete with well-considered recommendations for further improvements or extensions.

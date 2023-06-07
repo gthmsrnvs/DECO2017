@@ -137,7 +137,7 @@ The application became more advanced with the addition of genre, dateAdded, and 
 Finally, the form was styled again to fit on the screen without overflow due to the newly added properties (`commit 58450a19e95a6afaf27315e80652905e5690d96a`). The submit button was styled to use a plus sign for a friendly UI rather than a text label (`commit 2a03bfca58599f9123577b38e5e6e374c105157b`). Lastly, a guitar favicon was added (`commit dc23247020a95205205e6eb77a25c111c13d6a99`), giving the application a unique and recognizable icon in the browser tab. The royalty-free favicon was obtained from https://icon-icons.com/icon/guitar-music/3286
 
 ## 🧪 Testing
-The app was tested on Chrome, Arc and Safari browsers for functionality and for responsiveness by resizing the window and checking if the protoype was functional. You can test the app using the "npm run dev" command in the terminal. 
+The app was tested on Arc, Chrome and Safari browsers for functionality and for responsiveness by resizing the window and checking if the protoype was functional. You can test the app using the "npm run dev" command in the terminal. Ideally, this app should be used in the Arc Browser (built on Chormium) which is free for all students however, it is functional in other browsers as well.
 
 ## 💡 Lessons Learned and Best Practices
 Throughout the development of this application, several key lessons were learned:

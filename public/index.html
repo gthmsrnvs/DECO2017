@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!--standard meta tags for the app generated using VS Code boilerplate-->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Music Tracker App</title>
+    <!-- SCSS file for the app -->
     <link rel="stylesheet" href="./scss/main.scss" />
-    <!-- Fonts from Google -->
+    <!-- Preconnect Fonts from Google for performance optimisation -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Import Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Monofett&family=Space+Grotesk:wght@500&display=swap"
       rel="stylesheet"
@@ -19,6 +22,7 @@
     />
     <!-- p5.js library is used for the background canvas visualisations. -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <!-- custom js file for the background canvas visualisations. -->
     <script src="background.js"></script>
     <!-- JSdeliver is used to deliver uuidv4 library for generating unique ids. -->
     <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
@@ -27,7 +31,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
-    <link rel="icon" href="img/guitar_music_3848.ico">
+    <!-- royalty free guitar favicon for the app from: https://icon-icons.com/icon/guitar-music/3286-->
+    <link rel="icon" href="img/guitar.ico" />
   </head>
 
   <body>
@@ -42,8 +47,6 @@
     </header>
 
     <main class="main">
-      <!-- background is made using p5js library -->
-      <section id="backgroundCanvas"></section>
       <!-- confirmation dialog/pop up when adding a new song -->
       <dialog id="addDialog" class="dialog">
         <h2>Are you sure?</h2>
@@ -70,7 +73,7 @@
           <button id="closeDetail" class="btn">Close</button>
         </menu>
       </dialog>
-
+      <!-- main container for the form and song list -->
       <section id="mySongsContainer" class="container">
         <form action="#mySongs" method="post" id="form" style="display: block">
           <label for="songName">Song</label>
@@ -87,11 +90,17 @@
           <label for="albumName">Album</label>
           <input type="text" name="albumName" id="albumName" required />
           <label for="mood">Mood</label>
-          <input type="text" name="mood" id="mood" placeholder="e.g. Euphoric" required />
+          <input
+            type="text"
+            name="mood"
+            id="mood"
+            placeholder="e.g. Euphoric"
+            required
+          />
           <label for="mood">Genre</label>
           <input type="text" id="genre" placeholder="e.g. Rock" />
           <label for="mood">Duration</label>
-          <input type="text" id="duration" placeholder="e.g. 01:23"/>
+          <input type="text" id="duration" placeholder="e.g. 01:23" />
           <label for="rating">Rating</label>
           <div class="rating">
             <!-- Element for each star in the star rating -->
@@ -107,10 +116,11 @@
             <label for="star1" title="text">★</label>
           </div>
           <button type="submit" class="submit-button">
+            <!-- font awesome icon for submit button -->
             <i class="fas fa-plus"></i>
           </button>
         </form>
-
+        <!-- aside element for the song list -->
         <aside id="song-list-aside" class="song-list-container">
           <h2>List of Songs</h2>
           <ul id="songList">
@@ -119,7 +129,7 @@
         </aside>
       </section>
     </main>
-
+    <!-- main script file for the app -->
     <script src="script.js"></script>
   </body>
 </html>

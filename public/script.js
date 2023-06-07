@@ -123,7 +123,12 @@ form.addEventListener('submit', function (event) {
   // Split the duration into minutes and seconds
   const parts = duration.split(':');
 
-  // Check if the duration is valid i.e. its between 0 and 59
+  // Check if the duration is valid
+  // The if statement checks for the following conditions:
+  // 1. parts.length !== 2: The input should be split into exactly two parts (minutes and seconds)
+  // 2. isNaN(parts[0]) || isNaN(parts[1]): Both parts should be numbers (not NaN)
+  // 3. parts[0] < 0 || parts[0] > 59: The minutes part should be between 0 and 59
+  // 4. parts[1] < 0 || parts[1] > 59: The seconds part should be between 0 and 59
   if (parts.length !== 2 || isNaN(parts[0]) || isNaN(parts[1]) || parts[0] < 0 || parts[0] > 59 || parts[1] < 0 || parts[1] > 59) { //isNaN = is not a number
     alert('Invalid duration. Please enter a duration in the format MM:SS, where MM and SS are numbers between 0 and 59.');
     event.preventDefault(); // Prevent the form from being submitted

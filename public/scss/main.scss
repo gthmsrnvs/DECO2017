@@ -170,15 +170,17 @@ body {
         background-color: #1a1a1a;
         color: #f7f7f7;
         display: block;
-        margin: 10px auto;
+        margin: 5px auto;
       }
 
       // Styles for the submit button. It has a higher contrast color to stand out, and padding for clickability.
-      input[type="submit"] {
+      button[type="submit"] {
         padding: 10px;
         background-color: #ff3f3f;
         border: none;
-        border-radius: 5px;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
         color: #1a1a1a;
         cursor: pointer;
         transition: background-color 200ms;
@@ -187,7 +189,7 @@ body {
       }
 
       // Changing the submit button's color on hover provides a visual cue that it's interactive.
-      input[type="submit"]:hover {
+      button[type="submit"]:hover {
         background-color: #f7f7f7;
         color: #1a1a1a;
       }

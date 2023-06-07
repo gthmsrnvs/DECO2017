@@ -35,7 +35,7 @@
       <h1>My Songs</h1>
       <nav class="navigation">
         <ul>
-          <li id="mySongsNav">Track your music with a dynamic playlist app</li>
+          <li id="mySongsNav">Add, View and Delete songs</li>
         </ul>
       </nav>
     </header>
@@ -89,7 +89,7 @@
           <input type="text" name="mood" id="mood" placeholder="e.g. Euphoric" required />
           <label for="mood">Genre</label>
           <input type="text" id="genre" placeholder="e.g. Rock" />
-          <label for="mood">Song Duration</label>
+          <label for="mood">Duration</label>
           <input type="text" id="duration" placeholder="MM:SS"/>
           <label for="rating">Rating</label>
           <div class="rating">
@@ -104,7 +104,9 @@
             <input type="radio" id="star1" name="rate" value="1" required />
             <label for="star1" title="text">★</label>
           </div>
-          <input type="submit" value="Submit" />
+          <button type="submit" class="submit-button">
+            <i class="fas fa-plus"></i>
+          </button>
         </form>
 
         <aside id="song-list-aside" class="song-list-container">

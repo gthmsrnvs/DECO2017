@@ -41,7 +41,10 @@ function updateSongList() {
                             <p>Artist: ${song.artist}</p>
                             <p>Album: ${song.album}</p>
                             <p>Mood: ${song.mood}</p>
-                            <p>Rating: ${song.rating}</p>`;
+                            <p>Rating: ${song.rating}</p>
+                            <p>Date Added: ${song.dateAdded}</p>
+                            <p>Genre: ${song.genre}</p>
+                            <p>Duration: ${song.duration}</p>`;
       detailDialog.showModal();
     });
 
@@ -65,11 +68,11 @@ function updateSongList() {
         updateSongList();
         // Close the dialog
         deleteDialog.close();
-      }); 
+      });
       deleteNo.addEventListener('click', function () {
         // Close the dialog without deleting if No is clicked
         deleteDialog.close();
-      }); 
+      });
     });
   });
 };
@@ -114,6 +117,19 @@ confirmNo.addEventListener('click', function () {
 form.addEventListener('submit', function (event) {
   event.preventDefault(); // Prevent the form from submitting and reloading the page
 
+  // Get the duration input value
+  const duration = document.getElementById('duration').value;
+
+  // Split the duration into minutes and seconds
+  const parts = duration.split(':');
+
+  // Check if the duration is valid i.e. its between 0 and 59
+  if (parts.length !== 2 || isNaN(parts[0]) || isNaN(parts[1]) || parts[0] < 0 || parts[0] > 59 || parts[1] < 0 || parts[1] > 59) { //isNaN = is not a number
+    alert('Invalid duration. Please enter a duration in the format MM:SS, where MM and SS are numbers between 0 and 59.');
+    event.preventDefault(); // Prevent the form from being submitted
+    return;
+  }
+
   // Generate a unique ID for the song
   // const songID = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
   const songID = uuidv4(); //UUID is a Universally Unique Identifier. It is a 128-bit number used to identify information in computer systems worldwide. It is generated through the JSdelivr CDN.
@@ -126,6 +142,9 @@ form.addEventListener('submit', function (event) {
     artist: document.getElementById('artistName').value,
     album: document.getElementById('albumName').value,
     mood: document.getElementById('mood').value,
+    dateAdded: new Date().toLocaleString(), // Current date and time
+    genre: document.getElementById('genre').value, 
+    duration: document.getElementById('duration').value, 
     rating: document.querySelector('input[name="rate"]:checked').value
   };
 

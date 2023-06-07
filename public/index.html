@@ -1,106 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Tracker App</title>
+    <link rel="stylesheet" href="./scss/main.scss" />
+    <!-- Fonts from Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monofett&family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- p5.js library is used for the background canvas visualisations. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="background.js"></script>
+    <!-- JSdeliver is used to deliver uuidv4 library for generating unique ids. -->
+    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+    <!-- Font Awesome Library is used for icons. -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Music Tracker App</title>
-  <link rel="stylesheet" href="./scss/main.scss" />
-  <!-- Fonts from Google -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Monofett&family=Space+Grotesk:wght@500&display=swap"
-    rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-  <!-- p5.js library is used for the background canvas visualisations. -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
-  <script src="background.js"></script>
-  <!-- JSdeliver is used to deliver uuidv4 library for generating unique ids. -->
-  <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
-  <!-- Font Awesome Library is used for icons. -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-</head>
-
-<body>
-  <!-- Header contains Navigation Menu and Help Button  -->
-  <header>
-    <h1>My Songs</h1>
-    <nav class="navigation">
-      <ul>
-        <li id="mySongsNav">Track your music with a dynamic playlist app</li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="main">
-    <!-- background is made using p5js library -->
-    <section id="backgroundCanvas"></section>
-    <!-- confirmation dialog/pop up when adding a new song -->
-    <dialog id="addDialog" class="dialog">
-      <h2>Are you sure?</h2>
-      <p>Do you really want to add this song?</p>
-      <menu>
-        <button id="confirmYes" class="btn">Yes</button>
-        <button id="confirmNo" class="btn">No</button>
-      </menu>
-    </dialog>
-    <!-- confirmation to delete a song -->
-    <dialog id="deleteDialog" class="dialog">
-      <h2>Are you sure?</h2>
-      <p>Do you really want to delete this song?</p>
-      <menu>
-        <button id="deleteYes" class="btn">Yes</button>
-        <button id="deleteNo" class="btn">No</button>
-      </menu>
-    </dialog>
-    <!-- pop up to view the song details when clicking a song -->
-    <dialog id="detailDialog" class="dialog">
-      <h2>Song Details</h2>
-      <div id="songDetail"></div>
-      <menu>
-        <button id="closeDetail" class="btn">Close</button>
-      </menu>
-    </dialog>
-    
-    <section id="mySongsContainer" class="container">
-      <form action="#mySongs" method="post" id="form" style="display: block">
-        <label for="songName">Song</label>
-        <input type="text" name="songName" id="songName" autocomplete="off" required /> 
-          <!-- autocomplete="off" is used to disable the autocomplete feature for song name -->
-        <label for="artistName">Artist</label>
-        <input type="text" name="artistName" id="artistName" required />
-        <label for="albumName">Album</label>
-        <input type="text" name="albumName" id="albumName" required />
-        <label for="mood">Mood</label>
-        <input type="text" name="mood" id="mood" required />
-        <label for="rating">Rating</label>
-        <div class="rating">
-          <input type="radio" id="star5" name="rate" value="5" required />
-          <label for="star5" title="text">★</label>
-          <input type="radio" id="star4" name="rate" value="4" required />
-          <label for="star4" title="text">★</label>
-          <input type="radio" id="star3" name="rate" value="3" required />
-          <label for="star3" title="text">★</label>
-          <input type="radio" id="star2" name="rate" value="2" required />
-          <label for="star2" title="text">★</label>
-          <input type="radio" id="star1" name="rate" value="1" required />
-          <label for="star1" title="text">★</label>
-        </div>
-        <input type="submit" value="Submit" />
-      </form>
-
-      <aside id="song-list-aside" class="song-list-container">
-        <h2>List of Songs</h2>
-        <ul id="songList">
-          <!-- Song list items -->
+  <body>
+    <!-- Header contains Navigation Menu and Help Button  -->
+    <header>
+      <h1>My Songs</h1>
+      <nav class="navigation">
+        <ul>
+          <li id="mySongsNav">Track your music with a dynamic playlist app</li>
         </ul>
-      </aside>
-    </section>
-  </main>
+      </nav>
+    </header>
+
+    <main class="main">
+      <!-- background is made using p5js library -->
+      <section id="backgroundCanvas"></section>
+      <!-- confirmation dialog/pop up when adding a new song -->
+      <dialog id="addDialog" class="dialog">
+        <h2>Are you sure?</h2>
+        <p>Do you really want to add this song?</p>
+        <menu>
+          <button id="confirmYes" class="btn">Yes</button>
+          <button id="confirmNo" class="btn">No</button>
+        </menu>
+      </dialog>
+      <!-- confirmation to delete a song -->
+      <dialog id="deleteDialog" class="dialog">
+        <h2>Are you sure?</h2>
+        <p>Do you really want to delete this song?</p>
+        <menu>
+          <button id="deleteYes" class="btn">Yes</button>
+          <button id="deleteNo" class="btn">No</button>
+        </menu>
+      </dialog>
+      <!-- pop up to view the song details when clicking a song -->
+      <dialog id="detailDialog" class="dialog">
+        <h2>Song Details</h2>
+        <div id="songDetail"></div>
+        <menu>
+          <button id="closeDetail" class="btn">Close</button>
+        </menu>
+      </dialog>
+
+      <section id="mySongsContainer" class="container">
+        <form action="#mySongs" method="post" id="form" style="display: block">
+          <label for="songName">Song</label>
+          <input
+            type="text"
+            name="songName"
+            id="songName"
+            autocomplete="off"
+            required
+          />
+          <!-- autocomplete="off" is used to disable the autocomplete feature for song name -->
+          <label for="artistName">Artist</label>
+          <input type="text" name="artistName" id="artistName" required />
+          <label for="albumName">Album</label>
+          <input type="text" name="albumName" id="albumName" required />
+          <label for="mood">Mood</label>
+          <input type="text" name="mood" id="mood" required />
+          <input type="text" id="genre" placeholder="Genre" />
+          <input type="text" id="duration" placeholder="Duration (MM:SS)
+          pattern="^([0-5]?[0-9]):([0-5]?[0-9])$" />
+          <!-- This pattern will match any input that consists of one or two digits (from 0 to 59), 
+            followed by a colon, and then one or two more digits (from 0 to 59). 
+            This corresponds to a duration in the MM:SS format. -->
+          <label for="rating">Rating</label>
+          <div class="rating">
+            <input type="radio" id="star5" name="rate" value="5" required />
+            <label for="star5" title="text">★</label>
+            <input type="radio" id="star4" name="rate" value="4" required />
+            <label for="star4" title="text">★</label>
+            <input type="radio" id="star3" name="rate" value="3" required />
+            <label for="star3" title="text">★</label>
+            <input type="radio" id="star2" name="rate" value="2" required />
+            <label for="star2" title="text">★</label>
+            <input type="radio" id="star1" name="rate" value="1" required />
+            <label for="star1" title="text">★</label>
+          </div>
+          <input type="submit" value="Submit" />
+        </form>
+
+        <aside id="song-list-aside" class="song-list-container">
+          <h2>List of Songs</h2>
+          <ul id="songList">
+            <!-- Song list items -->
+          </ul>
+        </aside>
+      </section>
+    </main>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

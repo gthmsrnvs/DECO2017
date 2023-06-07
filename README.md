@@ -67,11 +67,15 @@ The GSRI0828 Tracker is a web application designed to track and manage songs in 
 
 The development of the GSRI0828 Tracker went through several iterations:
 
-1. **Refining the Scope**: The initial phase involved defining the scope of the application based on a previous task. The goal was to create a simple, user-friendly application for tracking and managing songs.
+1. **Refining the Scope:** The initial phase of development was all about planning and preparation. This involved understanding the requirements and refining the scope of the application. The old data model was analsyed and a new model was created
 
-2. **Building the Functionality**: The core functionality of the application was built using HTML and JavaScript. The HTML provides the structure of the application, while the JavaScript handles the application's functionality, such as adding and deleting songs.
+2. **Building the Core Functionality:** With a clear plan in place, the next step was to start coding. The HTML structure was laid out first, providing the skeleton of the application. JavaScript was then used to add functionality to the application, such as adding and deleting songs. At this stage, the application was functional but lacked styling.
 
-3. **Design and Responsiveness**: The final phase involved converting the CSS to SCSS and creating a responsive and aesthetic design. SCSS allowed for better organization and reusability of styles, while responsive design ensures the application looks good on all screen sizes.
+3. **Designing and Styling the Application:** Once the core functionality was in place, the focus shifted to design and styling. CSS was initially used to style the application, with the aim of making it visually appealing and easy to use. The design was kept simple and clean, with a focus on usability.
+
+4. **Refining and Optimizing:** The final stage of development involved refining and optimizing the application. This included converting the CSS to SCSS for better organization and reusability of styles, and making the application responsive to ensure it looks good on all screen sizes. Performance was also a key focus at this stage, with efforts made to ensure the application runs smoothly and efficiently.
+
+Throughout this process, the code was regularly tested and debugged to ensure it works as expected. Feedback was also sought from users to help identify any areas for improvement.
 
 # 📚 Code Overview
 
@@ -92,6 +96,18 @@ The JavaScript file provides the functionality of the application. It includes:
 - Functions to update the song list, add a song to the list, and handle form submission.
 - Event listeners for form submission, clicking on a song, and confirming actions.
 
+- A function to load the songs from local storage.
+
+// Retrieve songs from localStorage
+songs = JSON.parse(localStorage.getItem('songs')) || [];
+
+// ...
+
+// Save songs to localStorage
+localStorage.setItem('songs', JSON.stringify(songs));
+
+- A function to save the songs to local storage.
+
 ## 🎓 Lessons Learned and Best Practices
 
 Throughout the development of the GSRI0828 Tracker, several lessons were learned and best practices were followed:
@@ -108,15 +124,17 @@ Throughout the development of the GSRI0828 Tracker, several lessons were learned
 
 ## 🚧 Future Improvements
 
-While the GSRI0828 Tracker is functional and user-friendly, there are several potential improvements for future iterations:
+While the Music Tracker app is functional and user-friendly, there are several potential improvements for future iterations:
 
-- **Persistent Data**: Currently, the songs are not saved when the page is refreshed. Implementing persistent data, such as using local storage, would allow the songs to be saved between sessions.
+- **Database Integration**: Currently, the songs are stored in local storage. Integrating a database, such as MongoDB, would allow the songs to be stored in the cloud, making them accessible from anywhere.
+
+- **User Accounts**: Allowing users to create accounts would enable them to save their songs and access them from any device. This would improve the usability and accessibility of the application.
 
 - **Search and Filter**: Adding a search or filter feature would make it easier for users to find specific songs in the list.
 
 - **Sort Songs**: Allowing users to sort the songs by different criteria, such as title or artist, would improve the usability of the application.
 
-- **More Song Details**: Currently, only the title and artistof the song are tracked. Adding more details, such as genre or release date, would make the application more useful.
+- **More Song Details**: Currently, only the title, artist, album, mood and rating of the song are tracked. Adding more details, such as genre or release date, would make the application more useful.
 
 ---
 By Gautham Srinivas (gsri0828) for DECO2017 A3

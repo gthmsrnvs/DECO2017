@@ -86,13 +86,11 @@
           <label for="albumName">Album</label>
           <input type="text" name="albumName" id="albumName" required />
           <label for="mood">Mood</label>
-          <input type="text" name="mood" id="mood" required />
-          <input type="text" id="genre" placeholder="Genre" />
-          <input type="text" id="duration" placeholder="Duration (MM:SS)
-          pattern="^([0-5]?[0-9]):([0-5]?[0-9])$" />
-          <!-- This pattern will match any input that consists of one or two digits (from 0 to 59), 
-            followed by a colon, and then one or two more digits (from 0 to 59). 
-            This corresponds to a duration in the MM:SS format. -->
+          <input type="text" name="mood" id="mood" placeholder="e.g. Euphoric" required />
+          <label for="mood">Genre</label>
+          <input type="text" id="genre" placeholder="e.g. Rock" />
+          <label for="mood">Song Duration</label>
+          <input type="text" id="duration" placeholder="MM:SS"/>
           <label for="rating">Rating</label>
           <div class="rating">
             <input type="radio" id="star5" name="rate" value="5" required />

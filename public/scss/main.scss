@@ -25,7 +25,7 @@ body {
     text-align: center;
     h1 {
       // The main title on the page is significantly larger to create visual hierarchy.
-      font-size: 10rem;
+      font-size: 6rem;
 
       // The title uses a different font family here for uniqueness and branding purposes.
       font-family: "monofett", monospace;
@@ -123,7 +123,7 @@ body {
       width: 80%; // The container will take up 80% of the width of its parent, centered due to automatic margins.
       margin: auto;
       background-color: #1a1a1a;
-      padding: 5vh; // A padding of 5vh (5% of the viewport height) is added on all sides of the container.
+      padding: 2vh; // A padding of 5vh (5% of the viewport height) is added on all sides of the container.
       border-radius: 5px;
       box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
       display: flex;

@@ -123,7 +123,7 @@ form.addEventListener('submit', function (event) {
   // Split the duration into minutes and seconds
   const parts = duration.split(':');
 
-  // Check if the duration is valid
+  // Check if the duration is in a valid format
   // The if statement checks for the following conditions:
   // 1. parts.length !== 2: The input should be split into exactly two parts (minutes and seconds)
   // 2. isNaN(parts[0]) || isNaN(parts[1]): Both parts should be numbers (not NaN)

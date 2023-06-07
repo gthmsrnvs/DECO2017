@@ -123,9 +123,9 @@ body {
       width: 80%; // The container will take up 80% of the width of its parent, centered due to automatic margins.
       margin: auto;
       background-color: #1a1a1a;
-      padding: 2vh; // A padding of 5vh (5% of the viewport height) is added on all sides of the container.
+      padding: 2vh; // A padding of 2vh (2% of the viewport height) is added on all sides of the container.
       border-radius: 5px;
-      box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
+      box-shadow: 0px 0px 30px 0px rgba(255, 255, 255, 0.2);
       display: flex;
       flex-wrap: wrap; // flex-wrap: wrap allows the flex items to wrap onto multiple lines instead of squishing together.
       justify-content: space-between;

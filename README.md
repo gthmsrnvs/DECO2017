@@ -63,7 +63,42 @@ Remember, you can always stop your server by pressing 'Control + C'.
 
 The GSRI0828 Tracker is a web application designed to track and manage songs in local storage. The application is built using HTML, JavaScript, and SCSS, and follows a clear and organized development process, with a strong emphasis on functionality and user experience.
 
-## 🚀 Development Process - Iterations
+# 🚀 Development Process -
+
+##Changelog:
+
+### Iteration 1: Creating a functioning form
+eb9b2102f8031822eea846fbffb1e668bc12767e - Added a Form with Star Rating Mechanism
+60ca4de1f4908809bcda047ca7727e9e9fa64d36 - Added the CSS for Star Rating Mechanism
+e7b8b0f79c029cb3fa08ebc6fdd058373619fa60 - put everything in a container and edited css
+6723552a1a2b03192a90afe81ab398f6e839e9cd - Update the SongList 
+0020d9da9f4f133ee64c73d92b987081c0c9ca72 - Added delete button that removes song from list and storage
+f37ac10a8a2a2f45b29995e51655a83ad4eb1347 - Added confirmation prompt for adding a song
+b2cf4c0b8ae01a7a8b3c74e40bbd976f03c82f2c - Created Node server
+71b15d61461d648d4de2c29166a28bf1db5ee9ae - Updated div elements to use semantic HTML elements
+ca259fad6cf7ca71da0046ae9fab548b6fa169ce - Added fonts and a p5.js sketch for the background
+d041a0d94386647effbdb8a8fb9c64edbbab2cdb - Recreated confirmation prompts using dialog
+45123b9e5a9ec4afded5230928c23c5320e59aee - Remove song from list if item properties match song properties
+cce25eae8bb1e3a150e5fbf49ea1e8fb16033b6d - Added UUID for songID's and confirmation dialog for deleting a song
+863b75babf5d5c757e3ed93975d368ebcb59d5cc - Song Input field is automatically focused when window loads
+108976fa8c66ecc602d10c6b12faf8a7257d246a - Styled song list to have hover interactions and playlist appearance
+d958813044b859dc1df3b4cba206e8750028d326 - Added Readme.md and began documentation
+8dc687fd353004327c81f29bfcba2de772398711 - Added SCSS and fixed the root path of the parcel
+b0ae956bf84cd3af5c4e0e815c9c27fad9334af1 - Added an output folder for the dist to be created in and put it in gitignore file
+1c25667e3ebac66e0abfed6d7cd1b55c821646c0 - Styled Dialogs by class
+876739ffd6c0e002eed65956fcb966b75f9de363 - Updated the SCSS to be nested and removed old styles
+9b7bc0b3c0fb55dbe7c4f01ce266da452581cedd - Added Media Queries to make the app responsive
+d1fe0d303a2baa51c906faae8ba3a2d040db25f6 - Added genre, dateAdded and duration properties.
+5113fb8d004efb2156580d550d91e5b0712d9f28 - Form Validation to check if duration is in valid format
+58450a19e95a6afaf27315e80652905e5690d96a - Styled the form to fit on the screen without overflow
+2a03bfca58599f9123577b38e5e6e374c105157b - Styled submit button to use a plus sign for friendly UI
+- Added Favicon
+
+
+
+
+
+
 
 The development of the GSRI0828 Tracker went through several iterations:
 
@@ -134,7 +169,7 @@ While the Music Tracker app is functional and user-friendly, there are several p
 
 - **Sort Songs**: Allowing users to sort the songs by different criteria, such as title or artist, would improve the usability of the application.
 
-- **More Song Details**: Currently, only the title, artist, album, mood and rating of the song are tracked. Adding more details, such as genre or release date, would make the application more useful.
+- **Play songs**: Generating and providing a link to the song on YouTube or Spotify would allow users to listen to the song directly from the application.
 
 ---
 By Gautham Srinivas (gsri0828) for DECO2017 A3

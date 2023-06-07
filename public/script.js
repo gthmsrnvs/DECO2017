@@ -38,13 +38,13 @@ function updateSongList() {
       const detailDialog = document.getElementById('detailDialog');
       const detailView = document.getElementById('songDetail');
       detailView.innerHTML = `<p>Name: ${song.name}</p>
-                            <p>Artist: ${song.artist}</p>
-                            <p>Album: ${song.album}</p>
-                            <p>Mood: ${song.mood}</p>
-                            <p>Rating: ${song.rating}</p>
-                            <p>Date Added: ${song.dateAdded}</p>
-                            <p>Genre: ${song.genre}</p>
-                            <p>Duration: ${song.duration}</p>`;
+                              <p>Artist: ${song.artist}</p>
+                              <p>Album: ${song.album}</p>
+                              <p>Mood: ${song.mood}</p>
+                              <p>Rating: ${song.rating}</p>
+                              <p>Date Added: ${song.dateAdded}</p>
+                              <p>Genre: ${song.genre}</p>
+                              <p>Duration: ${song.duration}</p>`;
       detailDialog.showModal();
     });
 

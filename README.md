@@ -119,7 +119,7 @@ The creation of a Node server (`commit b2cf4c0b8ae01a7a8b3c74e40bbd976f03c82f2c`
 The application was then visually enhanced with the addition of two different fonts from google and a p5.js sketch for the background (`commit ca259fad6cf7ca71da0046ae9fab548b6fa169ce`). Confirmation prompts were recreated using HTML dialogs as this was an efficient and latest way to create pop-ups (`commit d041a0d94386647effbdb8a8fb9c64edbbab2cdb`).
 
 ### 6. Song List Improvements
-Initially the song list removed songs by matching each of the properties between the songs array and the list item (`commit 45123b9e5a9ec4afded5230928c23c5320e59aee`). This was inefficient for the performance of the application as it would take too much time to match 5 sdifferent criteria against large scale song lists. Universally Unique Identifiers (UUIDs) were used for songIDs through the JSDelivr library and a confirmation dialog was added for deleting a song (`commit cce25eae8bb1e3a150e5fbf49ea1e8fb16033b6d`), enhancing the UI of the song management features.
+Initially the song list removed songs by matching each of the properties between the songs array and the list item (`commit 45123b9e5a9ec4afded5230928c23c5320e59aee`). This was inefficient for the performance of the application as it would take too much time to match 5 sdifferent criteria against large scale song lists. Universally Unique Identifiers (UUIDs) were used for songIDs through the JSDelivr library and a confirmation dialog was added for deleting a song (`commit cce25eae8bb1e3a150e5fbf49ea1e8fb16033b6d`), enhancing the UI of the song management features. At this stage, the song list aside element was given a max height and an overflow-y of auto to create a vertical scroll group when there was a large list of items. 
 
 ### 7. User Experience Enhancements
 Next, the song input field was set to automatically focus when the window loads (`commit 863b75babf5d5c757e3ed93975d368ebcb59d5cc`), enhancing the user experience by making it easier to add songs. The song list was styled to have hover interactions and a playlist-like appearance using lines to separate each list item (`commit 108976fa8c66ecc602d10c6b12faf8a7257d246a`). This made the song list more visually appealing and intuitive to use as users could tell which song they were hovering over and which song they were deleting.
@@ -136,8 +136,8 @@ The application became more advanced with the addition of genre, dateAdded, and 
 ### 11. Final Touches
 Finally, the form was styled again to fit on the screen without overflow due to the newly added properties (`commit 58450a19e95a6afaf27315e80652905e5690d96a`). The submit button was styled to use a plus sign for a friendly UI rather than a text label (`commit 2a03bfca58599f9123577b38e5e6e374c105157b`). Lastly, a guitar favicon was added (`commit dc23247020a95205205e6eb77a25c111c13d6a99`), giving the application a unique and recognizable icon in the browser tab. The royalty-free favicon was obtained from https://icon-icons.com/icon/guitar-music/3286
 
-## Testing
-The app was tested on Chrome, Arc and Safari browsers for functionality and for responsiveness by resizing the window and checking if the protoype was functional. You can test the app using the "npm run dev" command in the terminal.
+## 🧪 Testing
+The app was tested on Chrome, Arc and Safari browsers for functionality and for responsiveness by resizing the window and checking if the protoype was functional. You can test the app using the "npm run dev" command in the terminal. 
 
 ## 💡 Lessons Learned and Best Practices
 Throughout the development of this application, several key lessons were learned:
@@ -222,6 +222,29 @@ While the Music Tracker app is functional and user-friendly, there are many pote
 - **Sort Songs**: Allowing users to sort the songs by different criteria, such as title or artist, would improve the usability of the application.
 
 - **Play songs**: Generating and providing a link to the song on YouTube or Spotify would allow users to listen to the song directly from the application.
+
+# References
+https://chat.openai.com/?model=gpt-3.5 - GPT-3 Chatbot was sometimes used when I was stuck with an error.
+
+https://codepen.io/hesguru/pen/BaybqXv - CSS Star Rating
+
+https://www.w3schools.com/js/js_validation.asp - Form Validation
+
+https://p5js.org/reference/ - Used for p5.js sketch
+
+https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage - for Local Storage API
+
+https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm - for Confirmation Dialogs
+
+https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector - for Query Selectors
+
+https://www.digitalocean.com/community/tutorials/how-to-bundle-a-web-app-with-parcel-js - for bundling with parcel
+
+https://www.w3schools.com/css/css_rwd_mediaqueries.asp - for media queries
+
+https://www.w3schools.com/css/css3_buttons.asp - for button styling
+
+https://www.w3schools.com/css/css3_shadows_box.asp - for box shadow styling
 
 ---
 By Gautham Srinivas (gsri0828) for DECO2017 A3
